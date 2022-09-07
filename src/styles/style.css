@@ -1,3 +1,4 @@
+/* főoldal */
 .chickenWings{
     background-image: url(../../public/images/sweet.jpg);
     background-position: center;
@@ -7,4 +8,15 @@
     margin-left: 10%;
     width: 80%;
     height: 80%;
+}
+
+/* recpept alap */
+
+.navbar{
+    background-color: #2a2a2a;
+    height: 5rem;
+}
+#navbarNav > ul > li > a, body > header > nav > div > a{
+    font-weight: bolder;
+    color: #b4b4bc !important; 
 }
