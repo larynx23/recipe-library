@@ -31,3 +31,6 @@ footer{
 footer a {
     color: #b4b4bc ;
 }
+img{
+    max-width: 300px;
+}
