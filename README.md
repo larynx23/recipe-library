@@ -8,8 +8,6 @@ A projekt során html, css és javascript-et fogunk használni.
 
 ### Csapattagok
 
-(Nem merek megesküdni rá, hogy ABC sorrendben van)
-
 ```
 $ Chen Kevin
 $ Tömő Viktor
