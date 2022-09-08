@@ -1,4 +1,16 @@
+main {
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: .75fr;
+    justify-content: center;
+}
 
+section#hero {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
 
 .navbar {
     background-color: #2a2a2a;
@@ -8,4 +20,26 @@
 #navbarNav > ul > li > a, body > header > nav > div > a {
     font-weight: bolder;
     color: #b4b4bc !important;
+}
+
+table {
+    color: #b4b4bc;
+    border: #2a2a2a solid 1px;
+    background-color: #212121c4;
+    max-width: 500px;
+    width: 100%;
+    table-layout: fixed;
+    margin: 0 auto;
+}
+
+th {
+    background-color: #212121;
+    border-bottom: #2a2a2a solid 1px;
+}
+
+td,
+th {
+    border-collapse: collapse;
+    padding: 5px 15px;
+    text-align: center;
 }

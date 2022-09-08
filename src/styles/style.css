@@ -42,7 +42,7 @@ header{
 }
 
 .container{
-    color: #777;
+  color: #777;
 }
 
 .navbar .nav-link {
@@ -90,25 +90,4 @@ footer a {
 
 img {
   max-width: 300px;
-}
-
-table {
-  color: #b4b4bc;
-  border: #2a2a2a solid 1px;
-  background-color: #212121c4;
-  max-width: 25%;
-  width: 100%;
-  table-layout: fixed;
-}
-
-th {
-  background-color: #212121;
-  border-bottom: #2a2a2a solid 1px;
-}
-
-td,
-th {
-  border-collapse: collapse;
-  padding: 5px 15px;
-  text-align: center;
 }
