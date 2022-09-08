@@ -78,10 +78,14 @@ header{
 
 footer {
   background-color: #2a2a2a;
-  height: 7rem;
   text-align: center;
   font-weight: bolder;
   color: #b4b4bc;
+  padding: 1rem;
+}
+
+footer p {
+  margin-bottom: .75rem;
 }
 
 footer a {
