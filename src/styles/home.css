@@ -1,0 +1,12 @@
+h1 {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
+    left: 0; 
+    right: 0; 
+    top: 20vh;
+    width: 50vh;
+}

@@ -9,21 +9,10 @@ main {
 }
 
 header{
-    position: relative;
+  position: relative;
 }
 
-h1 {
-  position: absolute;
-  z-index: 1;
-  color: white;
-  font-weight: bold;
-  display: block;
-  margin: 0 auto;
-  left: 0; 
-  right: 0; 
-  top: 20vh;
-  width: 50vh;
-}
+
 
 .chickenWings {
   background-image: url(../../public/images/cookies.jpg);
@@ -37,9 +26,6 @@ h1 {
     color: #777;
 }
 
-.navbar {
-    transition: all 0.4s;
-  }
   
   .navbar .nav-link {
     color: #fff;
@@ -75,15 +61,7 @@ h1 {
 
 /* recpept alap */
 /*
-.navbar {
-  background-color: #2a2a2a;
-  height: 5rem;
-}
-#navbarNav > ul > li > a,
-body > header > nav > div > a {
-  font-weight: bolder;
-  color: #b4b4bc !important;
-}
+
 */
 footer {
   background-color: #2a2a2a;
