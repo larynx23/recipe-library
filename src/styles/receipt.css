@@ -56,3 +56,58 @@ section#hero img {
 section#hero h1 {
     margin-bottom: 0;
 }
+
+section#ingredients {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+section#ingredients div.top {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto auto;
+    align-items: center;
+    gap: .5rem;
+    border-top: 1px solid black;
+    padding: .5rem 0;
+}
+
+section#ingredients div.top div.minus, section#ingredients div.top div.plus {
+    width: 1.25rem;
+    height: 4px;
+    background-color: black;
+    border-radius: 15px;
+    position: relative;
+}
+
+section#ingredients div.top div.plus::after {
+    content: "";
+    width: 4px;
+    height: 1.25rem;
+    background-color: black;
+    position: absolute;
+    top: calc(-.625rem + 2px);
+    left: calc(.625rem - 2px);
+    border-radius: 15px;
+}
+
+section#ingredients div.top input[type=number] {
+    -moz-appearance: textfield;
+    font-size: 1rem;
+    width: calc(3ch + 2px + .4rem);
+    padding: .2rem;
+    border: 1px solid black;
+}
+
+section#ingredients div.top input::-webkit-outer-spin-button, section#ingredients div.top input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+section#ingredients div.top p {
+    margin-bottom: 0;
+}
+
+section#ingredients div.top h2 {
+    margin-bottom: 0;
+}
