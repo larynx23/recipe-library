@@ -1,5 +1,6 @@
 main {
     min-height: 100%;
+    max-width: 1250px;
     display: grid;
     grid-template-columns: .75fr;
     grid-template-rows: min-content;
@@ -97,6 +98,7 @@ section#ingredients div.top input[type=number] {
     width: calc(3ch + 2px + .4rem);
     padding: .2rem;
     border: 1px solid black;
+    text-align: right;
 }
 
 section#ingredients div.top input::-webkit-outer-spin-button, section#ingredients div.top input::-webkit-inner-spin-button {
