@@ -2,7 +2,10 @@ main {
     min-height: 100%;
     display: grid;
     grid-template-columns: .75fr;
+    grid-template-rows: min-content;
     justify-content: center;
+    padding: .5rem 0;
+    gap: .5rem 0;
 }
 
 section#hero {
@@ -10,10 +13,11 @@ section#hero {
     align-items: center;
     justify-content: start;
     flex-direction: column;
+    gap: 1rem;
 }
 
 .navbar {
-    background-color: #2a2a2a;
+    background-color: #2a2a2a !important;
     height: 5rem;
 }
 
@@ -22,7 +26,7 @@ section#hero {
     color: #b4b4bc !important;
 }
 
-table {
+section#hero table {
     color: #b4b4bc;
     border: #2a2a2a solid 1px;
     background-color: #212121c4;
@@ -32,14 +36,23 @@ table {
     margin: 0 auto;
 }
 
-th {
+section#hero th {
     background-color: #212121;
     border-bottom: #2a2a2a solid 1px;
 }
 
-td,
-th {
+section#hero td,
+section#hero th {
     border-collapse: collapse;
     padding: 5px 15px;
     text-align: center;
+}
+
+section#hero img {
+    max-width: 650px;
+    width: 100%;
+}
+
+section#hero h1 {
+    margin-bottom: 0;
 }
