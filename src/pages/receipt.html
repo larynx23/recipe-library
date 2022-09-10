@@ -67,7 +67,7 @@
         <div role="button" class="plus"></div>
       </div>
       <ul>
-        <li><span id="idata-1">1</span> bögre hozzávaló</li>
+        <li><span id="idata-{{ i }}">{{ count }}</span> {{ unit }}</li>
       </ul>
     </section>
     <section id="steps">
@@ -75,7 +75,7 @@
         <h2>Elkészítés</h2>
       </div>
       <ol>
-        <li onclick="selectStep(this)"></li>
+        <li onclick="selectStep(this)">{{ step }}</li>
       </ol>
     </section>
   </main>
