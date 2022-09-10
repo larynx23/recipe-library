@@ -9,7 +9,6 @@ function initView() {
   for (let i = 0; i < 3; i++) {
     document.querySelector(`#hero > table > tbody > tr:nth-child(2) > td:nth-child(${i+1})`).textContent = secsToText((i === 2) ? (receipt["times"][0] + receipt["times"][1]) : (receipt["times"][i]));
   }
-  document.querySelector("body > main").classList.remove("loading");
   const ingredientsUl = document.querySelector("#ingredients > ul");
   ingredientsUl.innerHTML = "";
   ingredientsMultiplier = 1;
@@ -21,6 +20,7 @@ function initView() {
   receipt["steps"].forEach((step) => {
     document.querySelector("#steps > ol").innerHTML += stepsLi.replaceAll("{{ step }}", step);
   });
+  document.querySelector("body > main").classList.remove("loading");
 }
 
 function secsToText(seconds) {
@@ -62,6 +62,14 @@ function modifyIngredientsMultiplier(add, set = false) {
   receipt["ingredients"].forEach((ing, i) => {
     document.getElementById(`idata-${i}`).innerText = ing.count * ingredientsMultiplier;
   });
+}
+
+function navigateToReceipt(name) {
+  if (!(name in receiptData)) {toMainPage();}
+  window.history.pushState({}, '', window.location.href.slice(0, window.location.href.indexOf("?name")) + `?name=${name}`);
+  receipt = receiptData[name];
+  document.querySelector("body > main").classList.add("loading");
+  initView();
 }
 
 function selectStep(element) {
