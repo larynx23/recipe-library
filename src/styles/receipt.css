@@ -27,7 +27,6 @@ section#hero {
 
 .navbar {
     background-color: #2a2a2a !important;
-    height: 5rem;
 }
 
 #navbarNav > ul > li > a, body > header > nav > div > a {
