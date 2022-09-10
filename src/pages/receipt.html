@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="../styles/style.css" type="text/css">
   <link rel="stylesheet" href="../styles/receipt.css" type="text/css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-  <script src="../scripts/receipt_actions.js" defer></script>
+  <script src="../scripts/data.js"></script>
+  <script src="../scripts/receipt_urlCheck.js"></script>
+  <script src="../scripts/receipt.js" defer></script>
 </head>
 
 <body>
@@ -40,14 +42,14 @@
     </nav>
   </header>
 
-  <main>
+  <main class="loading">
     <section id="hero">
       <h1>Recept</h1>
       <img src="" alt="placeholder">
       <table>
         <tr>
           <th>Előkészítés</th>
-          <th>Sütés</th>
+          <th>Elkészítés</th>
           <th>Összesen</th>
         </tr>
         <tr>

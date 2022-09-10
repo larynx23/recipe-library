@@ -7,6 +7,12 @@ main {
     justify-content: center;
     padding: .5rem 0;
     gap: .5rem 0;
+    transition: opicaty .3s;
+    opacity: 0;
+}
+
+main:not(.loading) {
+    animation: fadeIn .3s forwards;
 }
 
 section#hero {
@@ -139,4 +145,9 @@ section#steps ol li:hover, section#steps ol li.selected {
 
 section#steps ol li.selected::before {
     color: black;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
