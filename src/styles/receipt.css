@@ -3,7 +3,7 @@ main {
     max-width: 1250px;
     display: grid;
     grid-template-columns: .75fr;
-    grid-template-rows: min-content;
+    grid-template-rows: repeat(3, min-content);
     justify-content: center;
     padding: .5rem 0;
     gap: .5rem 0;
@@ -54,17 +54,14 @@ section#hero img {
     width: 100%;
 }
 
-section#hero h1 {
-    margin-bottom: 0;
-}
-
 section#ingredients {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
+    font-size: 1.1rem;
 }
 
-section#ingredients div.top {
+section div.top {
     display: grid;
     grid-template-columns: 1fr auto auto auto auto;
     align-items: center;
@@ -106,10 +103,40 @@ section#ingredients div.top input::-webkit-outer-spin-button, section#ingredient
     margin: 0;
 }
 
-section#ingredients div.top p {
+section#ingredients div.top p, section div.top h2, section h1 {
     margin-bottom: 0;
 }
 
-section#ingredients div.top h2 {
-    margin-bottom: 0;
+section#steps {
+    height: min-content;
+    padding: .5rem 0;
+}
+
+section#steps ol {
+    padding-left: .5rem;
+    list-style: none;
+    counter-reset: steps-counter;
+}
+
+section#steps ol li {
+    counter-increment: steps-counter;
+    padding: .25rem .5rem;
+    font-size: 1.15rem;
+    margin-bottom: .5rem;
+    transition: transform .2s .1s, background-color .15s .1s;
+    cursor: pointer;
+}
+
+section#steps ol li::before {
+    content: counter(steps-counter) ". ";
+    color: #6c6d6f;
+}
+
+section#steps ol li:hover, section#steps ol li.selected {
+    transform: translateX(10px);
+    background-color: #c7c7cf;
+}
+
+section#steps ol li.selected::before {
+    color: black;
 }
