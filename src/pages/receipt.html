@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../styles/style.css" type="text/css">
   <link rel="stylesheet" href="../styles/receipt.css" type="text/css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <script src="../scripts/receipt_actions.js" defer></script>
 </head>
 
 <body>
@@ -77,10 +78,10 @@
         <h2>Elkészítés</h2>
       </div>
       <ol>
-        <li class="selected">Lépés 1</li>
-        <li>Lépés 2</li>
-        <li>Lépés 3</li>
-        <li>Lépés 4</li>
+        <li onclick="selectStep(this)">Lépés 1</li>
+        <li onclick="selectStep(this)">Lépés 2</li>
+        <li onclick="selectStep(this)">Lépés 3</li>
+        <li onclick="selectStep(this)">Lépés 4</li>
       </ol>
     </section>
   </main>
