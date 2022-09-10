@@ -61,10 +61,14 @@
     <section id="ingredients">
       <div class="top">
         <h2>Hozzávalók</h2>
-        <div role="button" class="minus"></div>
-        <input type="number" name="serving" id="serving" min="1" value="1">
+        <button id="minus_ing" onclick="modifyIngredientsMultiplier(-1)">
+          <div class="minus"></div>
+        </button>
+        <input onblur="modifyIngredientsMultiplier(0, Number(document.getElementById('serving').value))" type="number" name="serving" id="serving" min="1" value="1">
         <p>adag</p>
-        <div role="button" class="plus"></div>
+        <button id="plus_ing" onclick="modifyIngredientsMultiplier(+1)">
+          <div class="plus"></div>
+        </button>
       </div>
       <ul>
         <li><span id="idata-{{ i }}">{{ count }}</span> {{ unit }}</li>

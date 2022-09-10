@@ -13,6 +13,7 @@ function initView() {
   const ingredientsUl = document.querySelector("#ingredients > ul");
   ingredientsUl.innerHTML = "";
   ingredientsMultiplier = 1;
+  document.getElementById("minus_ing").disabled = true;
   receipt["ingredients"].forEach((ing, i) => {
     ingredientsUl.innerHTML += ingredientsLi.replaceAll("{{ i }}", i).replaceAll("{{ count }}", ing.count).replaceAll("{{ unit }}", ing.unit);
   });
@@ -34,6 +35,33 @@ function secsToText(seconds) {
     }
   })
   return toReturn.join(" ");
+}
+
+function modifyIngredientsMultiplier(add, set = false) {
+  if (set === false) {
+    ingredientsMultiplier += add;
+    document.getElementById("serving").value = ingredientsMultiplier;
+  } else {
+    if (set > 999 || set < 1) {
+      document.getElementById("serving").value = ingredientsMultiplier;
+      return;
+    } else {
+      ingredientsMultiplier = set;
+    }
+  }
+  if (ingredientsMultiplier === 999) {
+    document.getElementById("plus_ing").disabled = true;
+  } else {
+    document.getElementById("plus_ing").disabled = false;
+  }
+  if (ingredientsMultiplier === 1) {
+    document.getElementById("minus_ing").disabled = true;
+  } else {
+    document.getElementById("minus_ing").disabled = false;
+  }
+  receipt["ingredients"].forEach((ing, i) => {
+    document.getElementById(`idata-${i}`).innerText = ing.count * ingredientsMultiplier;
+  });
 }
 
 function selectStep(element) {
