@@ -12,24 +12,56 @@ ingredients: []{count: number, unit: string} - Hozzávalók lista: count azt jel
 steps: []string - Lépések lista
 */
 const receiptData = JSON.parse(`{
-  "klasszikus_madartej": {
-    "name": "Klasszikus madártej",
-    "image": "klasszikus_madartej.jpeg",
-    "times": [300, 360],
+  "tiramisu": {
+    "name": "Tiramisu",
+    "image": "tiramisu.jpg",
+    "times": [1800, 0],
     "ingredients": [
-      {"count": 4, "unit": "db tojásfehérje"},
-      {"count": 1, "unit": "csipet só"},
-      {"count": 2, "unit": "ek porcukor"},
-      {"count": 800, "unit": "ml tej"},
-      {"count": 1, "unit": "db vanília"},
-      {"count": 4, "unit": "db tojássárgája"},
-      {"count": 70, "unit": "g cukor"}
+      {"count": 6, "unit": "db tojás"},
+      {"count": 200, "unit": "g porcukor"},
+      {"count": 120, "unit": "ml kávé"},
+      {"count": 0.5, "unit": "teáskanál só"},
+      {"count": 1000, "unit": "g mascarpone"},
+      {"count": 1, "unit": "teáskanál amarettó"},
+      {"count": 600, "unit": "g babapiskóta"},
+      {"count": 6, "unit": "evőkanál cukrozatlan kakaópor"}
     ],
     "steps": [
-      "A tojásfehérjét egy csipet sóval kezdjük el kemény habbá verni, majd adjuk hozzá a két evőkanál porcukrot, és verjük teljesen keményre.",
-      "A tejhez adjuk hozzá a vaníliarúd kikapart magjait, majd forraljuk fel fel, és kanállal szaggassuk bele a tojáshabból galuskákat. Két-három percig főzzük, majd óvatosan for- dítsuk meg, újabb két-három perc, és már szedhetjük is ki egy üres tálba.",
-      "A tojássárgáját egy csipet sóval és a cukorral keverjük jó habosra, öntsük hozzá egy keveset a langyos tejből, majd azonnal keverjük simára. Adjuk hozzá a maradék tejet, keverjük el, és öntsd vissza az egészet az edénybe.",
-      "Alacsony lángon, folyamatosan kevergetve addig főzzük, amíg szépen be nem sűrűsödik, majd hagyjuk kihűlni. Tegyük a tetejére a galuskákat, és az egészet rakjuk be a hűtőbe legalább 2-3 órával azelőtt, hogy tálalni szeretnénk."
+      "Szétválasztjuk a tojások sárgáját és fehérjét. A porcukor felét hozzákeverjük a sárgájához. Azt vízgőz fölé helyezzük, és folyanatosan keverjük, amíg szép habos, világos nem lesz.",
+      "A tojásfehérjét fél teáskanál sóval elkezdjük habbá verni, menet közben, hozzáadjuk a porcukrot, és teljesen kemény habbá verjük.",
+      "A szobahőmérsékletű mascarponéhoz hozzákeverjük a tojássárgájás masszát, majd óvatosan, három részletben a fehérjehabot is.",
+      "A kávét elkeverjük az amerettóval, majd a babapiskótákat megmártjuk benne, és egy tálba fektetünk egy réteget. Rárakjuk a krém felét, erre jön a megmártott babapiskóták másik fele, végül az utolsó adag krém.",
+      "A tiramisut egy éjszakára hűtőbe tesszük. Tálalás előtt megszórhatjuk a tetejét kakaóporral."
+    ]
+  },
+  "almas_lepeny": {
+    "name": "Almás lepény",
+    "image": "almas_lepeny.jpg",
+    "times": [1800, 2700],
+    "ingredients": [
+      {"count": 40, "unit": "dkg finomliszt"},
+      {"count": 0.5, "unit": "csomag sütőpor"},
+      {"count": 1, "unit": "csipet só"},
+      {"count": 13, "unit": "dkg vaj"},
+      {"count": 1, "unit": "db tojássárgája"},
+      {"count": 13, "unit": "dkg cukor"},
+      {"count": 150, "unit": "g tejföl (vagy tej)"},
+      {"count": 12, "unit": "alma (savanykás ízű)"},
+      {"count": 8, "unit": "ek cukor"},
+      {"count": 1, "unit": "teáskanál fahéj"},
+      {"count": 2, "unit": "ek zsemlemorzsa (vagy kevés durvára vágott dió)"},
+      {"count": 1, "unit": "db tojásfehérje"},
+      {"count": 1, "unit": "ek porcukor"}
+    ],
+    "steps": [
+      "A lisztet összekeverjük a sütőporral és sóval, összegyúrjuk a vajjal, tojássárgájával, cukorral és annyi tejföllel, hogy könnyen nyújtható tésztát kapjunk.",
+      "Az imént készült tésztát hűtőbe tesszük",
+      "Az almákat meghámozzuk majd lereszeljük.",
+      "A tészta felét kinyújtjuk, kizsírozott tepsibe rakjuk, és megszórjuk kevés zsemlemorzsával vagy durvára vágott dióval.",
+      "Az alma levét kinyomkodjuk, szétterítjük a tepsiben, megszórjuk 8 evőkanál cukorral, meghintjük őrölt fahéjjal.",
+      "A tészta másik felét is kinyújtjuk majd rátesszük a sütemény tetejére.",
+      "A tojásfehérjét kicsit felverjük, megkenjük vele a tésztát, villával megszurkáljuk a felső tésztaréteget,és már mehet is a tepsi az előmelegített sütőbe.",
+      "200 fokon 45 percig sütjük."
     ]
   }
 }`);
