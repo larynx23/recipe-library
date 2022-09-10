@@ -42,14 +42,14 @@ function modifyIngredientsMultiplier(add, set = false) {
     ingredientsMultiplier += add;
     document.getElementById("serving").value = ingredientsMultiplier;
   } else {
-    if (set > 999 || set < 1) {
+    if (set > 99 || set < 1) {
       document.getElementById("serving").value = ingredientsMultiplier;
       return;
     } else {
       ingredientsMultiplier = set;
     }
   }
-  if (ingredientsMultiplier === 999) {
+  if (ingredientsMultiplier === 99) {
     document.getElementById("plus_ing").disabled = true;
   } else {
     document.getElementById("plus_ing").disabled = false;
