@@ -9,10 +9,12 @@ main {
     gap: .5rem 0;
     transition: opicaty .3s;
     opacity: 0;
+    pointer-events: none;
 }
 
 main:not(.loading) {
     animation: fadeIn .3s forwards;
+    pointer-events: all;
 }
 
 section#hero {
