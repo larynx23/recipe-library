@@ -163,7 +163,17 @@ section#steps ol li.selected::before {
     color: black;
 }
 
+section:target {
+    animation: onTarget .45s 2 .35s;
+}
+
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
+}
+
+@keyframes onTarget {
+    0% {transform: scale(1.0);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1.0);}
 }
