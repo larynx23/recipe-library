@@ -176,3 +176,14 @@ section:target {
     50% {transform: scale(1.05);}
     100% {transform: scale(1.0);}
 }
+
+@media only screen and (max-width: 720px) {
+    main {
+        grid-template-columns: .95fr;
+    }
+    section#hero img {
+        max-width: unset;
+        max-height: unset;
+        width: 100%;
+    }
+}
