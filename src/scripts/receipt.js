@@ -23,7 +23,6 @@ function initView() {
 }
 
 function secsToText(seconds) {
-  console.log(seconds);
   const timesMark = ["ó", "p", "mp"];
   let times = [Math.floor(Math.floor(seconds / 60) / 60)];
   seconds -= times[0] * 60 * 60;
