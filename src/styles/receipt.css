@@ -131,7 +131,7 @@ section#steps ol li {
     padding: .25rem .5rem;
     font-size: 1.15rem;
     margin-bottom: .5rem;
-    transition: transform .2s .1s, background-color .15s .1s;
+    transition: transform .1s .1s, background-color .15s .1s;
     cursor: pointer;
 }
 
