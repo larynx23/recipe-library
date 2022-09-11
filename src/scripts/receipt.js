@@ -11,10 +11,15 @@ function initView() {
   }
   const ingredientsUl = document.querySelector("#ingredients > ul");
   ingredientsUl.innerHTML = "";
-  ingredientsMultiplier = 1;
-  document.getElementById("minus_ing").disabled = true;
+  ingredientsMultiplier = ("defServing" in receipt ? receipt["defServing"] : 1);
+  document.querySelector("#serving").value = ingredientsMultiplier;
+  if (ingredientsMultiplier === 1) {
+    document.getElementById("minus_ing").disabled = true;
+  } else if (ingredientsMultiplier === 99) {
+    document.getElementById("plus_ing").disabled = true;
+  }
   receipt["ingredients"].forEach((ing, i) => {
-    ingredientsUl.innerHTML += ingredientsLi.replaceAll("{{ i }}", i).replaceAll("{{ count }}", ing.count).replaceAll("{{ unit }}", ing.unit);
+    ingredientsUl.innerHTML += ingredientsLi.replaceAll("{{ i }}", i).replaceAll("{{ count }}", ing.count * ingredientsMultiplier).replaceAll("{{ unit }}", ing.unit);
   });
   document.querySelector("#steps > ol").innerHTML = "";
   receipt["steps"].forEach((step) => {
