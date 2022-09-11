@@ -1,12 +1,54 @@
+body{
+    background-color: rgb(30, 29, 32);
+}
+
+.banner {
+    background-image: url(../../public/images/cookies.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    height: 60vh;
+    filter: brightness(70%);
+  }
+
 h1 {
-    position: absolute;
-    z-index: 1;
     color: white;
     font-weight: bold;
     display: block;
     margin: 0 auto;
-    left: 0; 
-    right: 0; 
-    top: 20vh;
-    width: 50vh;
+}
+
+.box{
+    width: 350px;
+    height: 100%;
+    background-color: rgb(39, 39, 39);
+    text-align: center;
+    padding-bottom: 10px;
+    transition: transform 0.3s ;
+}
+
+.box:hover{
+    transform: scale(110%);
+    transition: transform 0.3s ;
+    cursor: pointer;
+}
+
+.box>img{
+    width: 30%;
+    display: block;
+    margin: 20px auto;
+}
+
+.box td{
+    width: 200px;
+    text-align: left;
+    padding: 5px 0 10px 20px;
+}
+
+.ikon{
+    width: 25px;
+    margin-right: 10px;
+}
+
+.boxes{
+    align-items: center;
 }

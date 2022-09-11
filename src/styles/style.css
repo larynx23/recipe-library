@@ -34,14 +34,6 @@ header{
   position: relative;
 }
 
-.chickenWings {
-  background-image: url(../../public/images/cookies.jpg);
-  background-position: center;
-  background-attachment: fixed;
-  height: 60vh;
-  filter: brightness(70%);
-}
-
 .container{
   color: #777;
 }
