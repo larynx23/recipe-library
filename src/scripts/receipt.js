@@ -5,16 +5,21 @@ const stepsLi = document.querySelector("#steps > ol").innerHTML;
 function initView() {
   document.title = `Recept - ${receipt['name']}`;
   document.querySelector("#hero > h1").textContent = receipt['name'];
-  document.querySelector("#hero > img").src = `../../public/receipts/${receipt['image']}`;
+  document.querySelector("#hero > img").src = `../../public/images/receipts/${receipt['image']}`;
   for (let i = 0; i < 3; i++) {
     document.querySelector(`#hero > table > tbody > tr:nth-child(2) > td:nth-child(${i+1})`).textContent = secsToText((i === 2) ? (receipt["times"][0] + receipt["times"][1]) : (receipt["times"][i]));
   }
   const ingredientsUl = document.querySelector("#ingredients > ul");
   ingredientsUl.innerHTML = "";
-  ingredientsMultiplier = 1;
-  document.getElementById("minus_ing").disabled = true;
+  ingredientsMultiplier = ("defServing" in receipt ? receipt["defServing"] : 1);
+  document.querySelector("#serving").value = ingredientsMultiplier;
+  if (ingredientsMultiplier === 1) {
+    document.getElementById("minus_ing").disabled = true;
+  } else if (ingredientsMultiplier === 99) {
+    document.getElementById("plus_ing").disabled = true;
+  }
   receipt["ingredients"].forEach((ing, i) => {
-    ingredientsUl.innerHTML += ingredientsLi.replaceAll("{{ i }}", i).replaceAll("{{ count }}", ing.count).replaceAll("{{ unit }}", ing.unit);
+    ingredientsUl.innerHTML += ingredientsLi.replaceAll("{{ i }}", i).replaceAll("{{ count }}", ing.count * ingredientsMultiplier).replaceAll("{{ unit }}", ing.unit);
   });
   document.querySelector("#steps > ol").innerHTML = "";
   receipt["steps"].forEach((step) => {

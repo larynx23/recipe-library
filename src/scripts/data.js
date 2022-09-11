@@ -8,6 +8,7 @@ id: string - Ez az object kulcsa, snake case recept neve
 name: string - Recept neve
 image: string - Recept képének a neve és kiterjesztése
 times: []number - Recept előkészítési és sütési ideje MÁSODPERCBEN
+defServing: number - Recept alapértelmezett adag
 ingredients: []{count: number, unit: string} - Hozzávalók lista: count azt jelenti, hogy hány kell EGY elkészítéséhez és a unit pedig az ami ezután a szám után oda lesz írva
 steps: []string - Lépések lista
 */
@@ -16,6 +17,7 @@ const receiptData = JSON.parse(`{
     "name": "Tiramisu",
     "image": "tiramisu.jpg",
     "times": [1800, 0],
+    "defServing": 4,
     "ingredients": [
       {"count": 6, "unit": "db tojás"},
       {"count": 200, "unit": "g porcukor"},
@@ -38,6 +40,7 @@ const receiptData = JSON.parse(`{
     "name": "Almás lepény",
     "image": "almas_lepeny.jpg",
     "times": [1800, 2700],
+    "defServing": 8,
     "ingredients": [
       {"count": 40, "unit": "dkg finomliszt"},
       {"count": 0.5, "unit": "csomag sütőpor"},
@@ -68,6 +71,7 @@ const receiptData = JSON.parse(`{
     "name": "Muffin",
     "image": "muffin.jpg",
     "times": [600, 1200],
+    "defServing": 6,
     "ingredients": [
       {"count": 2, "unit": "bögre finomliszt"},
       {"count": 1, "unit": "bögre cukor"},
@@ -88,6 +92,7 @@ const receiptData = JSON.parse(`{
     "name": "Csokis keksz",
     "image": "csokis_keksz.jpg",
     "times": [900, 720],
+    "defServing": 8,
     "ingredients": [
       {"count": 100, "unit": "g nádcukor"},
       {"count": 100, "unit": "g cukor"},
