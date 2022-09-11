@@ -63,5 +63,25 @@ const receiptData = JSON.parse(`{
       "A tojásfehérjét kicsit felverjük, megkenjük vele a tésztát, villával megszurkáljuk a felső tésztaréteget,és már mehet is a tepsi az előmelegített sütőbe.",
       "200 fokon 45 percig sütjük."
     ]
+  },
+  "muffin": {
+    "name": "Muffin",
+    "image": "muffin.jpg",
+    "times": [600, 1200],
+    "ingredients": [
+      {"count": 2, "unit": "bögre finomliszt"},
+      {"count": 1, "unit": "bögre cukor"},
+      {"count": 250, "unit": "ml tej"},
+      {"count": 125, "unit": "ml napraforgó olaj"},
+      {"count": 1, "unit": "db tojás"},
+      {"count": 1, "unit": "csomag sütőpor"}
+    ],
+    "steps": [
+      "A lisztet a sütőporral elvegyítjük.",
+      "A tojást habosra keverjük és hozzáadjuk a cukrot, valamint a tejet és az olajat is.",
+      "Végül az egészet elkeverjük.",
+      "A muffinformákat kivajazzuk vagy muffinpapírral béleljük.",
+      "A masszát a formákba öntjük és 175-180 fokon tűpróbáig sütjük."
+    ]
   }
 }`);
