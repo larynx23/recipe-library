@@ -83,5 +83,29 @@ const receiptData = JSON.parse(`{
       "A muffinformákat kivajazzuk vagy muffinpapírral béleljük.",
       "A masszát a formákba öntjük és 175-180 fokon tűpróbáig sütjük."
     ]
+  },
+  "csokis_keksz": {
+    "name": "Csokis keksz",
+    "image": "csokis_keksz.jpg",
+    "times": [900, 720],
+    "ingredients": [
+      {"count": 100, "unit": "g nádcukor"},
+      {"count": 100, "unit": "g cukor"},
+      {"count": 175, "unit": "g vaj"},
+      {"count": 2, "unit": "db tojás"},
+      {"count": 275, "unit": "g finomliszt"},
+      {"count": 1, "unit": "teáskanál vanília kivonat (őrlemény)"},
+      {"count": 1, "unit": "tk sütőpor"},
+      {"count": 0.5, "unit": "tk szódabikarbóna"},
+      {"count": 150, "unit": "g étcsokoládé (pasztilla)"}
+    ],
+    "steps": [
+      "A kétféle cukrot a vajjal habosra keverjük, majd egyesével hozzáütjük a tojásokat is.",
+      "Hozzáadjuk a lisztet, a vaníliaőrleményt, a sütőport, valamint a szódabikarbónát, és az egészet csomómentesre keverjük.",
+      "Beleszórjuk a csokoládépasztillákat, és összeforgatjuk a tésztával, hogy egyenletesen eloszoljanak.",
+      "Egy fagylaltos kanalat olajjal bekenünk, és azzal adagoljuk a tésztát a sütőpapírral bélelt tepsire. Nem kell szétlapogatni: a keksz lényege, hogy a hő hatására magától fog szétfolyni, így nyeri el jellegzetes formáját. Pont ezért ügyeljünk rá, hogy viszonylag messze legyenek egymástól a tésztagombócok.",
+      "175°C-ra előmelegített sütőbe tesszük, nagyjából 12 percre. Ezalatt a tésztagombócok szétfolynak, majd a bennük lévő sütőpor miatt picit megdagadnak, végül összeesnek - így lesz tökéletes az állaga.",
+      "Hidegen és melegen egyaránt isteni, együk magában, vagy tunkoljuk kedvünk szerint bármibe."
+    ]
   }
 }`);
