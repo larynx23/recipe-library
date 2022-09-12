@@ -7,6 +7,7 @@ id: string - Ez az object kulcsa, snake case recept neve
 --- Object adatai ---
 name: string - Recept neve
 image: string - Recept képének a neve és kiterjesztése
+icon: string - Főoldalon szereplő rajzolt kép neve és kiterjesztése
 times: []number - Recept előkészítési és sütési ideje MÁSODPERCBEN
 defServing: number - Recept alapértelmezett adag
 ingredients: []{count: number, unit: string} - Hozzávalók lista: count azt jelenti, hogy hány kell EGY elkészítéséhez és a unit pedig az ami ezután a szám után oda lesz írva
@@ -16,6 +17,7 @@ const receiptData = JSON.parse(`{
   "tiramisu": {
     "name": "Tiramisu",
     "image": "tiramisu.jpg",
+    "icon": "tiramisu.png",
     "times": [1800, 0],
     "defServing": 4,
     "ingredients": [
@@ -39,6 +41,7 @@ const receiptData = JSON.parse(`{
   "almas_lepeny": {
     "name": "Almás lepény",
     "image": "almas_lepeny.jpg",
+    "icon": "pie.svg",
     "times": [1800, 2700],
     "defServing": 8,
     "ingredients": [
@@ -70,6 +73,7 @@ const receiptData = JSON.parse(`{
   "muffin": {
     "name": "Muffin",
     "image": "muffin.jpg",
+    "icon": "cupcake.svg",
     "times": [600, 1200],
     "defServing": 6,
     "ingredients": [
@@ -91,6 +95,7 @@ const receiptData = JSON.parse(`{
   "csokis_keksz": {
     "name": "Csokis keksz",
     "image": "csokis_keksz.jpg",
+    "icon": "cookie.svg",
     "times": [900, 720],
     "defServing": 8,
     "ingredients": [
