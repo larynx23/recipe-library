@@ -8,6 +8,7 @@ id: string - Ez az object kulcsa, snake case recept neve
 name: string - Recept neve
 money: number - 1, 2, 3, mennyire drága 1 a legolcsóbb 3 a drága
 difficulty: number - 1, 2, 3, mennyire nehéz 1 a könnyű 3 a nehéz (2 a haladó)
+description: string - A recept leírása
 image: string - Recept képének a neve és kiterjesztése
 icon: string - Főoldalon szereplő rajzolt kép neve és kiterjesztése
 times: []number - Recept előkészítési és sütési ideje MÁSODPERCBEN
@@ -20,6 +21,7 @@ const receiptData = JSON.parse(`{
     "name": "Tiramisu",
     "money": 2,
     "difficulty": 1,
+    "description": "A muffin tejesen magától értetődő sütemény, tehát pillanatok alatt elkészül.",
     "image": "tiramisu.jpg",
     "icon": "tiramisu.png",
     "times": [1800, 0],
@@ -46,6 +48,7 @@ const receiptData = JSON.parse(`{
     "name": "Almás lepény",
     "money": 1,
     "difficulty": 2,
+    "description": "A nagymama almás süteményéhez semmi sem fogható. Íme a legjobb almás lepény recept.",
     "image": "almas_lepeny.jpg",
     "icon": "pie.svg",
     "times": [1800, 2700],
@@ -80,6 +83,7 @@ const receiptData = JSON.parse(`{
     "name": "Muffin",
     "money": 1,
     "difficulty": 3,
+    "description": "A muffin tejesen magától értetődő sütemény, tehát pillanatok alatt elkészül.",
     "image": "muffin.jpg",
     "icon": "cupcake.svg",
     "times": [600, 1200],
@@ -104,6 +108,7 @@ const receiptData = JSON.parse(`{
     "name": "Csokis keksz",
     "money": 2,
     "difficulty": 2,
+    "description": "A világ legnépszerűbb édességei közé tartozik a puha amerikai csokis keksz.",
     "image": "csokis_keksz.jpg",
     "icon": "cookie.svg",
     "times": [900, 720],
