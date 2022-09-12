@@ -179,7 +179,7 @@ section#steps ol li:hover, section#steps ol li.selected {
 }
 
 section#steps ol li.selected::before {
-    color: black;
+    color: snow;
 }
 
 section:target {
