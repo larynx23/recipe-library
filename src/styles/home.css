@@ -55,3 +55,9 @@ h1 {
 .boxes{
     align-items: center;
 }
+
+@media only screen and (max-width: 720px) {
+    .ikon{
+        width: 18px;
+    }
+}
