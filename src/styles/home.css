@@ -5,7 +5,7 @@
     background-attachment: fixed;
     height: 60vh;
     filter: brightness(70%);
-  }
+}
 
 h1 {
     color: white;
@@ -51,6 +51,15 @@ h1 {
 
 .boxes{
     align-items: center;
+}
+
+section a {
+    color: white;
+    text-decoration: none;
+}
+
+section a:hover {
+    color: white;
 }
 
 @media only screen and (max-width: 720px) {

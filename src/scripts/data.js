@@ -159,3 +159,29 @@ const receiptData = JSON.parse(`{
     ]
   }
 }`);
+
+const moneyText = {
+  1: "olcsó",
+  2: "átlagos",
+  3: "drága"
+};
+
+const difficultyText = {
+  1: "könnyű",
+  2: "haladó",
+  3: "nehéz"
+};
+
+function secsToText(seconds) {
+  const timesMark = ["ó", "p", "mp"];
+  let times = [Math.floor(Math.floor(seconds / 60) / 60)];
+  seconds -= times[0] * 60 * 60;
+  times.push(Math.floor(seconds / 60), seconds % 60);
+  let toReturn = [];
+  times.forEach((t, i) => {
+    if (t > 0) {
+      toReturn.push(`${t}${timesMark[i]}`);
+    }
+  })
+  return toReturn.join(" ");
+}

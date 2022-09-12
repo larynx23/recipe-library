@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="../styles/style.css" type="text/css">
   <link rel="stylesheet" href="../styles/home.css" type="text/css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <script src="../scripts/data.js"></script>
+  <script src="../scripts/home.js" defer></script>
 </head>
 
 <body>
@@ -51,22 +53,24 @@
     <article class="row mt-3 mb-5">
       <!-- Muffin -->
       <section class="col-10 offset-1 offset-sm-0 col-sm-6 col-lg-4 col-xl-3 mb-4 mb-sm-5 mb-xl-0">
-        <div class="box">
-          <img src="../../public/images/{{ icon }}">
-          <h2>{{ name }}</h2>
-          <p>{{ description }}</p>
-          <hr>
-          <table>
-            <tr>
-              <td><img src="../../public/images/sand-clock.svg" class="ikon">{{ sum_times }}</td>
-              <td><img src="../../public/images/levels.svg" class="ikon">{{ difficulty }}</td>
-            </tr>
-            <tr>
-              <td><img src="../../public/images/man.svg" class="ikon">{{ sefServing }}</td>
-              <td><img src="../../public/images/wallet.svg" class="ikon">{{ money }}</td>
-            </tr>
-          </table>
-        </div>
+        <a href="receipt.html?name={{ name_raw }}">
+          <div class="box">
+            <img src="../../public/images/{{ icon }}">
+            <h2>{{ name }}</h2>
+            <p>{{ description }}</p>
+            <hr>
+            <table>
+              <tr>
+                <td><img src="../../public/images/sand-clock.svg" class="ikon">{{ sum_times }}</td>
+                <td><img src="../../public/images/levels.svg" class="ikon">{{ difficulty }}</td>
+              </tr>
+              <tr>
+                <td><img src="../../public/images/man.svg" class="ikon">{{ sefServing }} adag</td>
+                <td><img src="../../public/images/wallet.svg" class="ikon">{{ money }}</td>
+              </tr>
+            </table>
+          </div>
+        </a>
       </section>
     </article>
   </main>
