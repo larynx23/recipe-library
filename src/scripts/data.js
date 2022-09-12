@@ -6,7 +6,8 @@ A recept kép a public/images/receipts-ből lesz kiszedve
 id: string - Ez az object kulcsa, snake case recept neve
 --- Object adatai ---
 name: string - Recept neve
-money: string - 1, 2, 3, mennyire drága 1 a legolcsóbb 3 a drága
+money: number - 1, 2, 3, mennyire drága 1 a legolcsóbb 3 a drága
+difficulty: number - 1, 2, 3, mennyire nehéz 1 a könnyű 3 a nehéz (2 a haladó)
 image: string - Recept képének a neve és kiterjesztése
 icon: string - Főoldalon szereplő rajzolt kép neve és kiterjesztése
 times: []number - Recept előkészítési és sütési ideje MÁSODPERCBEN
@@ -18,6 +19,7 @@ const receiptData = JSON.parse(`{
   "tiramisu": {
     "name": "Tiramisu",
     "money": 2,
+    "difficulty": 1,
     "image": "tiramisu.jpg",
     "icon": "tiramisu.png",
     "times": [1800, 0],
@@ -43,6 +45,7 @@ const receiptData = JSON.parse(`{
   "almas_lepeny": {
     "name": "Almás lepény",
     "money": 1,
+    "difficulty": 2,
     "image": "almas_lepeny.jpg",
     "icon": "pie.svg",
     "times": [1800, 2700],
@@ -76,6 +79,7 @@ const receiptData = JSON.parse(`{
   "muffin": {
     "name": "Muffin",
     "money": 1,
+    "difficulty": 3,
     "image": "muffin.jpg",
     "icon": "cupcake.svg",
     "times": [600, 1200],
@@ -99,6 +103,7 @@ const receiptData = JSON.parse(`{
   "csokis_keksz": {
     "name": "Csokis keksz",
     "money": 2,
+    "difficulty": 2,
     "image": "csokis_keksz.jpg",
     "icon": "cookie.svg",
     "times": [900, 720],
