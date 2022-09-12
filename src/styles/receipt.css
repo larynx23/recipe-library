@@ -73,7 +73,7 @@ section div.top {
     grid-template-columns: 1fr auto auto auto auto;
     align-items: center;
     gap: .5rem;
-    border-top: 1px solid black;
+    border-top: 1px solid snow; 
     padding: .5rem 0;
 }
 
@@ -94,7 +94,7 @@ section#ingredients div.top button:disabled {
 section#ingredients div.top div.minus, section#ingredients div.top div.plus {
     width: 1.25rem;
     height: 4px;
-    background-color: black;
+    background-color: snow;
     border-radius: 15px;
     position: relative;
 }
@@ -103,7 +103,7 @@ section#ingredients div.top div.plus::after {
     content: "";
     width: 4px;
     height: 1.25rem;
-    background-color: black;
+    background-color: snow;
     position: absolute;
     top: calc(-.625rem + 2px);
     left: calc(.625rem - 2px);
@@ -155,7 +155,7 @@ section#steps ol li::before {
 
 section#steps ol li:hover, section#steps ol li.selected {
     transform: translateX(10px);
-    background-color: #c7c7cf;
+    background-color: hsl(240, 8%, 20%);
 }
 
 section#steps ol li.selected::before {

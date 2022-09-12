@@ -5,8 +5,9 @@ html, body {
   height: 100%;
   font-size: 16px;
   overflow-y: auto;
-  background-color: white;
+  background-color: rgb(30, 29, 32);
   overflow-x: hidden;
+  color: snow;
 }
 
 * {
@@ -35,7 +36,7 @@ header{
 }
 
 .container{
-  color: #777;
+  color: snow;
 }
 
 .navbar .nav-link {
