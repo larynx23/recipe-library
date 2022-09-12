@@ -53,6 +53,13 @@ h1 {
     align-items: center;
 }
 
+@media (min-width: 1200px) {
+    section.col-10 {
+        margin-bottom: 3rem !important;
+    }
+}
+
+
 section a {
     color: white;
     text-decoration: none;
