@@ -58,75 +58,18 @@
       <!-- Muffin -->
       <section class="col-10 offset-1 offset-sm-0 col-sm-6 col-lg-4 col-xl-3 mb-4 mb-sm-5 mb-xl-0">
         <div class="box">
-          <img src="../../public/images/cupcake.svg">
-          <h2>Muffin</h2>
-          <p>A muffin tejesen magától értetődő sütemény, tehát pillanatok alatt elkészül.</p>
+          <img src="../../public/images/{{ icon }}">
+          <h2>{{ name }}</h2>
+          <p>{{ description }}</p>
           <hr>
           <table>
             <tr>
-              <td><img src="../../public/images/sand-clock.svg" class="ikon"> 30 perc</td>
-              <td><img src="../../public/images/levels.svg" class="ikon"> egyszerű</td>
+              <td><img src="../../public/images/sand-clock.svg" class="ikon">{{ sum_times }}</td>
+              <td><img src="../../public/images/levels.svg" class="ikon">{{ difficulty }}</td>
             </tr>
             <tr>
-              <td><img src="../../public/images/man.svg" class="ikon"> 6 adag</td>
-              <td><img src="../../public/images/wallet.svg" class="ikon"> olcsó</td>
-            </tr>
-          </table>
-        </div>
-      </section>
-      <!-- Csokis keksz -->
-      <section class="col-10 offset-1 offset-sm-0 col-sm-6 col-lg-4 col-xl-3">
-        <div class="box">
-          <img src="../../public/images/cookie.svg">
-          <h2>Csokis keksz</h2>
-          <p>A világ legnépszerűbb édességei közé tartozik a puha amerikai csokis keksz.</p>
-          <hr>
-          <table>
-            <tr>
-              <td><img src="../../public/images/sand-clock.svg" class="ikon"> 25 perc</td>
-              <td><img src="../../public/images/levels.svg" class="ikon"> egyszerű</td>
-            </tr>
-            <tr>
-              <td><img src="../../public/images/man.svg" class="ikon"> 16 adag</td>
-              <td><img src="../../public/images/wallet.svg" class="ikon"> olcsó</td>
-            </tr>
-          </table>
-        </div>
-      </section>
-      <!-- Almás lepény -->
-      <section class="col-10 offset-1 offset-sm-0 col-sm-6 col-lg-4 col-xl-3">
-        <div class="box">
-          <img src="../../public/images/pie.svg">
-          <h2>Almás lepény</h2>
-          <p>A nagymama almás süteményéhez semmi sem fogható. Íme a legjobb almás lepény recept.</p>
-          <hr>
-          <table>
-            <tr>
-              <td><img src="../../public/images/sand-clock.svg" class="ikon"> 75 perc</td>
-              <td><img src="../../public/images/levels.svg" class="ikon"> haladó</td>
-            </tr>
-            <tr>
-              <td><img src="../../public/images/man.svg" class="ikon"> 10 adag</td>
-              <td><img src="../../public/images/wallet.svg" class="ikon"> drága</td>
-            </tr>
-          </table>
-        </div>
-      </section>
-      <!-- Tiramisu -->
-      <section class="col-10 offset-1 offset-sm-0 col-sm-6 col-lg-4 col-xl-3">
-        <div class="box">
-          <img src="../../public/images/tiramisu.png">
-          <h2>Tiramisu</h2>
-          <p>A muffin tejesen magától értetődő sütemény, tehát pillanatok alatt elkészül.</p>
-          <hr>
-          <table>
-            <tr>
-              <td><img src="../../public/images/sand-clock.svg" class="ikon"> 30 perc</td>
-              <td><img src="../../public/images/levels.svg" class="ikon"> egyszerű</td>
-            </tr>
-            <tr>
-              <td><img src="../../public/images/man.svg" class="ikon"> 12 adag</td>
-              <td><img src="../../public/images/wallet.svg" class="ikon"> átlagos</td>
+              <td><img src="../../public/images/man.svg" class="ikon">{{ sefServing }}</td>
+              <td><img src="../../public/images/wallet.svg" class="ikon">{{ money }}</td>
             </tr>
           </table>
         </div>
