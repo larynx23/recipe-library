@@ -1,4 +1,14 @@
 let ingredientsMultiplier = 0;
+const moneyText = {
+  1: "olcsó",
+  2: "átlagos",
+  3: "drága"
+};
+const difficultyText = {
+  1: "könnyű",
+  2: "haladó",
+  3: "nehéz"
+};
 const ingredientsLi = document.querySelector("#ingredients > ul").innerHTML;
 const stepsLi = document.querySelector("#steps > ol").innerHTML;
 
