@@ -6,7 +6,9 @@ A recept kép a public/images/receipts-ből lesz kiszedve
 id: string - Ez az object kulcsa, snake case recept neve
 --- Object adatai ---
 name: string - Recept neve
-money: string - 1, 2, 3, mennyire drága 1 a legolcsóbb 3 a drága
+money: number - 1, 2, 3, mennyire drága 1 a legolcsóbb 3 a drága
+difficulty: number - 1, 2, 3, mennyire nehéz 1 a könnyű 3 a nehéz (2 a haladó)
+description: string - A recept leírása
 image: string - Recept képének a neve és kiterjesztése
 icon: string - Főoldalon szereplő rajzolt kép neve és kiterjesztése
 times: []number - Recept előkészítési és sütési ideje MÁSODPERCBEN
@@ -18,6 +20,8 @@ const receiptData = JSON.parse(`{
   "tiramisu": {
     "name": "Tiramisu",
     "money": 2,
+    "difficulty": 1,
+    "description": "A muffin tejesen magától értetődő sütemény, tehát pillanatok alatt elkészül.",
     "image": "tiramisu.jpg",
     "icon": "tiramisu.png",
     "times": [1800, 0],
@@ -43,6 +47,8 @@ const receiptData = JSON.parse(`{
   "almas_lepeny": {
     "name": "Almás lepény",
     "money": 1,
+    "difficulty": 2,
+    "description": "A nagymama almás süteményéhez semmi sem fogható. Íme a legjobb almás lepény recept.",
     "image": "almas_lepeny.jpg",
     "icon": "pie.svg",
     "times": [1800, 2700],
@@ -76,6 +82,8 @@ const receiptData = JSON.parse(`{
   "muffin": {
     "name": "Muffin",
     "money": 1,
+    "difficulty": 3,
+    "description": "A muffin tejesen magától értetődő sütemény, tehát pillanatok alatt elkészül.",
     "image": "muffin.jpg",
     "icon": "cupcake.svg",
     "times": [600, 1200],
@@ -99,6 +107,8 @@ const receiptData = JSON.parse(`{
   "csokis_keksz": {
     "name": "Csokis keksz",
     "money": 2,
+    "difficulty": 2,
+    "description": "A világ legnépszerűbb édességei közé tartozik a puha amerikai csokis keksz.",
     "image": "csokis_keksz.jpg",
     "icon": "cookie.svg",
     "times": [900, 720],
@@ -121,6 +131,31 @@ const receiptData = JSON.parse(`{
       "Egy fagylaltos kanalat olajjal bekenünk, és azzal adagoljuk a tésztát a sütőpapírral bélelt tepsire. Nem kell szétlapogatni: a keksz lényege, hogy a hő hatására magától fog szétfolyni, így nyeri el jellegzetes formáját. Pont ezért ügyeljünk rá, hogy viszonylag messze legyenek egymástól a tésztagombócok.",
       "175°C-ra előmelegített sütőbe tesszük, nagyjából 12 percre. Ezalatt a tésztagombócok szétfolynak, majd a bennük lévő sütőpor miatt picit megdagadnak, végül összeesnek - így lesz tökéletes az állaga.",
       "Hidegen és melegen egyaránt isteni, együk magában, vagy tunkoljuk kedvünk szerint bármibe."
+    ]
+  },
+  "kokuszgolyo": {
+    "name": "Kókuszgolyó",
+    "money": 1,
+    "difficulty": 1,
+    "description": "A világ legnépszerűbb édességei közé tartozik a puha amerikai csokis keksz.",
+    "image": "kokuszgolyo.jpg",
+    "icon": "kokuszgolyo.svg",
+    "times": [1200, 0],
+    "defServing": 6,
+    "ingredients": [
+      {"count": 50, "unit": "dkg kekszmorzsa"},
+      {"count": 2, "unit": "Evőkanál cukrozatlan kakaópor "},
+      {"count": 1, "unit": "csomag vaníliás cukor "},
+      {"count": 20, "unit": "dkg porcukor"},
+      {"count": 20, "unit": "dkg vaj"},
+      {"count": 2, "unit": "dl tej"},
+      {"count": 20, "unit": "csepp rumaroma"},
+      {"count": 20, "unit": "dkg kókuszreszelék"}
+    ],
+    "steps": [
+      "A fenti alapanyagokat összedolgozzuk a kókuszreszelék kivételével.",
+      "Vizes kézzel kicsi gombócokat formázunk, és belehempergetjük a kókuszreszelékbe.",
+      "2 órára a hűtőbe tesszük, majd elfogyasztjuk! "
     ]
   }
 }`);
