@@ -132,5 +132,30 @@ const receiptData = JSON.parse(`{
       "175°C-ra előmelegített sütőbe tesszük, nagyjából 12 percre. Ezalatt a tésztagombócok szétfolynak, majd a bennük lévő sütőpor miatt picit megdagadnak, végül összeesnek - így lesz tökéletes az állaga.",
       "Hidegen és melegen egyaránt isteni, együk magában, vagy tunkoljuk kedvünk szerint bármibe."
     ]
+  },
+  "kokuszgolyo": {
+    "name": "Kókuszgolyó",
+    "money": 1,
+    "difficulty": 1,
+    "description": "A világ legnépszerűbb édességei közé tartozik a puha amerikai csokis keksz.",
+    "image": "kokuszgolyo.jpg",
+    "icon": "kokuszgolyo.svg",
+    "times": [1200, 0],
+    "defServing": 6,
+    "ingredients": [
+      {"count": 50, "unit": "dkg kekszmorzsa"},
+      {"count": 2, "unit": "Evőkanál cukrozatlan kakaópor "},
+      {"count": 1, "unit": "csomag vaníliás cukor "},
+      {"count": 20, "unit": "dkg porcukor"},
+      {"count": 20, "unit": "dkg vaj"},
+      {"count": 2, "unit": "dl tej"},
+      {"count": 20, "unit": "csepp rumaroma"},
+      {"count": 20, "unit": "dkg kókuszreszelék"}
+    ],
+    "steps": [
+      "A fenti alapanyagokat összedolgozzuk a kókuszreszelék kivételével.",
+      "Vizes kézzel kicsi gombócokat formázunk, és belehempergetjük a kókuszreszelékbe.",
+      "2 órára a hűtőbe tesszük, majd elfogyasztjuk! "
+    ]
   }
 }`);
