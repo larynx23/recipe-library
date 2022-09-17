@@ -18,5 +18,7 @@ function toggleDarkMode(_, first) {
   document.querySelector(`#theme-change > div.${darkMode ? 'dark' : 'light'}`).style.display = "none";
   document.querySelector(`#theme-change > div.${darkMode ? 'light' : 'dark'}`).style.removeProperty("display");
 }
+window.addEventListener('storage', (event) => {if (event.key === "theme") {toggleDarkMode();}})
+
 themButton.addEventListener("click", toggleDarkMode);
 toggleDarkMode(null, true);
