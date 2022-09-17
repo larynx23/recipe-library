@@ -59,6 +59,7 @@ header{
 
 .navbar.active .nav-link {
   color: #555;
+  line-height: 1rem;
 }
 
 .navbar.active .nav-link:hover, .navbar.active .nav-link:focus {
@@ -68,6 +69,11 @@ header{
 
 .navbar.active .navbar-brand {
   color: #555;
+}
+
+.navbar .nav-item {
+  display: grid;
+  align-items: center;
 }
 
 footer {
@@ -84,4 +90,15 @@ footer p {
 
 footer a {
   color: #b4b4bc;
+}
+
+button#theme-change {
+  border: 0;
+  border-radius: 100%;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+button#theme-change div {
+  padding: .25rem;
 }

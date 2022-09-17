@@ -186,6 +186,10 @@ section:target {
     animation: onTarget .45s 2 .35s;
 }
 
+button#theme-change {
+    margin-left: .5rem;
+}
+
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
