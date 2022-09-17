@@ -1,3 +1,7 @@
+:root {
+    --def-trans: 0s;
+}
+
 body:not(.light) {
     --color-g-one: hsl(0, 0%, 12%);
     --color-g-two: hsl(0, 0%, 18%);

@@ -5,9 +5,11 @@ html, body {
   height: 100%;
   font-size: 16px;
   overflow-y: auto;
-  background-color: rgb(30, 29, 32);
+  background-color: var(--color-g-three) !important;
+  transition: background-color var(--def-trans);
   overflow-x: hidden;
-  color: snow;
+  color: var(--color-reverse) !important;
+
 }
 
 * {
@@ -35,21 +37,22 @@ header{
   position: relative;
 }
 
-.container{
+.navbar {
+  background-color: var(--color-g-one) !important;
+  transition: background-color var(--def-trans);
+}
+
+.container {
   color: snow;
 }
 
-.navbar .nav-link {
-  color: #fff;
+.navbar .nav-link, .navbar .navbar-brand {
+  color: var(--color-reverse) !important;
 }
 
 .navbar .nav-link:hover, .navbar .nav-link:focus {
   color: #fff;
   text-decoration: none;
-}
-
-.navbar .navbar-brand {
-  color: #fff;
 }
 
 .navbar.active {
@@ -93,6 +96,7 @@ footer a {
 }
 
 button#theme-change {
+  background-color: var(--color-g-four);
   border: 0;
   border-radius: 100%;
   width: 2.25rem;
@@ -101,4 +105,8 @@ button#theme-change {
 
 button#theme-change div {
   padding: .25rem;
+}
+
+button#theme-change div {
+  color: var(--color-reverse);
 }
