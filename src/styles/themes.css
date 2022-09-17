@@ -1,0 +1,19 @@
+body:not(.light) {
+    --color-g-one: hsl(0, 0%, 12%);
+    --color-g-two: hsl(0, 0%, 18%);
+    --color-g-three: hsl(0, 0%, 22%);
+    --color-g-four: hsl(0, 0%, 28%);
+    --color-g-five: hsl(0, 0%, 35%);
+    --color-g-six: hsl(0, 0%, 45%);
+    --color-reverse: white;
+}
+
+body.light {
+    --color-g-one: hsl(0, 0%, 88%);
+    --color-g-two: hsl(0, 0%, 82%);
+    --color-g-three: hsl(0, 0%, 78%);
+    --color-g-four: hsl(0, 0%, 72%);
+    --color-g-five: hsl(0, 0%, 65%);
+    --color-g-six: hsl(0, 0%, 55%);
+    --color-reverse: black;
+}
