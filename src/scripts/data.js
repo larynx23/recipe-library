@@ -220,6 +220,32 @@ const receiptData = JSON.parse(`{
     "Közben egy pohárban összekeverünk egy kevés tejfölt némi fokhagymaporral és srirachaszósszal.",
     "A mártogatóst a kész nachos tetejére kanalazzuk, majd az egészet megszórjuk aprított petrezselyemmel (vagy korianderrel, vagy újhagyma zölddel, vagy ami éppen van otthon), végül rámorzsolunk egy pár szem tortillachipset."
     ]
+  },
+  "tatar_beefsteak": {
+    "name": "Tatár beefsteak",
+    "type": 1,
+    "money": 1,
+    "difficulty": 1,
+    "description": "Azoknak, akiknek csak negyed órájuk van a főzésre!",
+    "image": "tatar.jpg",
+    "icon": "tatar.svg",
+    "times": [600, 0],
+    "defServing": 2,
+    "ingredients": [
+      {"count": 20, "unit": "dkg marhabélszín "},
+      {"count": 0.5, "unit": "közepes db vöröshagyma "},
+      {"count": 1, "unit": "db tojássárgája "},
+      {"count": 0.5, "unit": "ek mustár "},
+      {"count": 1, "unit": "ek sűrített paradicsom "},
+      {"count": 1, "unit": "csipet só"},
+      {"count": 1, "unit": "csipet bors"},
+      {"count": 1, "unit": "ek fűszerpaprika "}
+    ],
+    "steps": [
+      "A bélszínt kétszer ledaráltatjuk a hentessel.",
+      "Az összes hozzávalót tálba tesszük, és összekeverjük.",
+      "Szobahőmérsékleten, vajjal, pirítóssal és ízlés szerinti friss zöldségekkel kínáljuk."
+    ]
   }
 }`);
 
