@@ -7,15 +7,20 @@
     filter: brightness(70%);
 }
 
+p{
+    color: var(--color-reverse);
+}
+
 h1 {
-    color: white;
+    color: var(--color-reverse);
     font-weight: bold;
     display: block;
     margin: 0 auto;
 }
 
 .box{
-    background-color: rgb(39, 39, 39);
+    background-color: var(--color-g-five);
+    color: var(--color-reverse);
     text-align: center;
     padding-bottom: 10px;
     transition: transform 0.3s ;

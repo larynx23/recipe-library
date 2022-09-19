@@ -80,19 +80,20 @@ header{
 }
 
 footer {
-  background-color: #2a2a2a;
+  background-color: var(--color-g-one);
   text-align: center;
   color: white;
   padding: 1rem;
-  letter-spacing: 1px;
+  letter-spacing: ;
 }
 
 footer p {
   margin-bottom: .75rem;
+  color: var(--color-reverse);
 }
 
 footer a {
-  color: #b4b4bc;
+  color: var(--color-reverse);
 }
 
 button#theme-change {
