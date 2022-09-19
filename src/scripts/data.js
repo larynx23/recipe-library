@@ -138,7 +138,7 @@ const receiptData = JSON.parse(`{
     "money": 1,
     "difficulty": 1,
     "description": "A világ legnépszerűbb édességei közé tartozik a puha amerikai csokis keksz.",
-    "image": "kokuszgolyo.jpg",
+    "image": "kokuszgolyo.webp",
     "icon": "kokuszgolyo.svg",
     "times": [1200, 0],
     "defServing": 6,

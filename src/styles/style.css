@@ -82,9 +82,9 @@ header{
 footer {
   background-color: #2a2a2a;
   text-align: center;
-  font-weight: bolder;
   color: white;
   padding: 1rem;
+  letter-spacing: 1px;
 }
 
 footer p {
@@ -110,3 +110,4 @@ button#theme-change div {
 button#theme-change div {
   color: var(--color-reverse);
 }
+

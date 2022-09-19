@@ -75,6 +75,7 @@ section#hero th {
 section#hero img {
     max-width: 650px;
     max-height: 350px;
+    border-radius: 4px;
 }
 
 section#ingredients {
@@ -142,6 +143,7 @@ section#ingredients div.top input::-webkit-outer-spin-button, section#ingredient
 
 section#ingredients div.top p, section div.top h2, section h1 {
     margin-bottom: 0;
+    font-weight: bold;
 }
 
 section#steps {
