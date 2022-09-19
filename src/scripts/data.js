@@ -7,6 +7,7 @@ id: string - Ez az object kulcsa, snake case recept neve
 --- Object adatai ---
 name: string - Recept neve
 money: number - 1, 2, 3, mennyire drága 1 a legolcsóbb 3 a drága
+type: number - 1, 2, 3 - előétel, főétel, desszert
 difficulty: number - 1, 2, 3, mennyire nehéz 1 a könnyű 3 a nehéz (2 a haladó)
 description: string - A recept leírása
 image: string - Recept képének a neve és kiterjesztése
@@ -19,6 +20,7 @@ steps: []string - Lépések lista
 const receiptData = JSON.parse(`{
   "tiramisu": {
     "name": "Tiramisu",
+    "type": 3
     "money": 2,
     "difficulty": 1,
     "description": "A muffin tejesen magától értetődő sütemény, tehát pillanatok alatt elkészül.",
@@ -46,6 +48,7 @@ const receiptData = JSON.parse(`{
   },
   "almas_lepeny": {
     "name": "Almás lepény",
+    "type": 3
     "money": 1,
     "difficulty": 2,
     "description": "A nagymama almás süteményéhez semmi sem fogható. Íme a legjobb almás lepény recept.",
@@ -81,6 +84,7 @@ const receiptData = JSON.parse(`{
   },
   "muffin": {
     "name": "Muffin",
+    "type": 3
     "money": 1,
     "difficulty": 3,
     "description": "A muffin tejesen magától értetődő sütemény, tehát pillanatok alatt elkészül.",
@@ -106,6 +110,7 @@ const receiptData = JSON.parse(`{
   },
   "csokis_keksz": {
     "name": "Csokis keksz",
+    "type": 3
     "money": 2,
     "difficulty": 2,
     "description": "A világ legnépszerűbb édességei közé tartozik a puha amerikai csokis keksz.",
@@ -135,6 +140,7 @@ const receiptData = JSON.parse(`{
   },
   "kokuszgolyo": {
     "name": "Kókuszgolyó",
+    "type": 3
     "money": 1,
     "difficulty": 1,
     "description": "A világ legnépszerűbb édességei közé tartozik a puha amerikai csokis keksz.",
@@ -160,6 +166,7 @@ const receiptData = JSON.parse(`{
   },
   "gofri": {
     "name": "Édes gofri",
+    "type": 3
     "money": 1,
     "difficulty": 1,
     "description": "Ha egyszer is kipróbálod ezt a receptet, soha többé nem akarsz bolti gofrit vásárolni!",
@@ -185,6 +192,12 @@ const receiptData = JSON.parse(`{
     ]
   }
 }`);
+
+const typeText = {
+  1: "előétel",
+  2: "főétel",
+  3: "desszert"
+};
 
 const moneyText = {
   1: "olcsó",
