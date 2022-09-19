@@ -167,6 +167,7 @@ section#steps ol li {
 }
 
 section#steps ol li::before {
+    transition: color .15s .1s;
     content: counter(steps-counter) ". ";
     color: #6c6d6f;
 }
@@ -174,6 +175,10 @@ section#steps ol li::before {
 section#steps ol li:hover, section#steps ol li.selected {
     transform: translateX(10px);
     background-color: var(--color-g-five);
+}
+
+section#steps ol li:hover::before {
+    color: var(--color-reverse);
 }
 
 section#steps ol li.selected::before {
