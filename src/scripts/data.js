@@ -157,6 +157,32 @@ const receiptData = JSON.parse(`{
       "Vizes kézzel kicsi gombócokat formázunk, és belehempergetjük a kókuszreszelékbe.",
       "2 órára a hűtőbe tesszük, majd elfogyasztjuk! "
     ]
+  },
+  "gofri": {
+    "name": "Édes gofri",
+    "money": 1,
+    "difficulty": 1,
+    "description": "Ha egyszer is kipróbálod ezt a receptet, soha többé nem akarsz bolti gofrit vásárolni!",
+    "image": "gofri.jpeg",
+    "icon": "gofri.svg",
+    "times": [1500, 0],
+    "defServing": 4,
+    "ingredients": [
+      {"count": 20, "unit": "dkg finomliszt"},
+      {"count": 1, "unit": "csomag vaníliás cukor"},
+      {"count": 1, "unit": "ek cukor"},
+      {"count": 1, "unit": "csomag sütőpor"},
+      {"count": 2, "unit": "db tojás"},
+      {"count": 2, "unit": "dl tej"},
+      {"count": 2, "unit": "ek vaj"},
+      {"count": 1, "unit": "csipet só"}
+    ],
+    "steps": [
+      "A száraz hozzávalókat összekeverjük egy tálban.",
+      "A tojást, a langyos tejet és az olvasztott vajat pedig egy másik tálban felverjük.",
+      "A liszthez hozzáöntjük jó sűrű kevergetés mellett az előzőleg jól felvert tejes keveréket, majd az egészet kikeverjük úgy, hogy egy jó sűrű, de mégis kissé folyós masszát kapjunk.",
+      "A gofrisütőt olajjal kikenjük, és belemerjük adagonként a gofri masszáját, és megsütjük. A végén ízlésünknek megfelelően fogyasztjuk!"
+    ]
   }
 }`);
 
