@@ -9,7 +9,10 @@ html, body {
   transition: background-color var(--def-trans);
   overflow-x: hidden;
   color: var(--color-reverse) !important;
+}
 
+body {
+  scroll-behavior: smooth;
 }
 
 * {
