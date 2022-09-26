@@ -9,6 +9,11 @@
 
 p{
     color: var(--color-reverse);
+    font-family: 'Dancing Script', cursive;
+}
+
+.filtersvg{
+    width: 30%;
 }
 
 h1 {
