@@ -191,6 +191,72 @@ const receiptData = JSON.parse(`{
       "A gofrisütőt olajjal kikenjük, és belemerjük adagonként a gofri masszáját, és megsütjük. A végén ízlésünknek megfelelően fogyasztjuk!"
     ]
   },
+  "hortobagyi_palacsinta": {
+    "name": "Hortobágyi palacsinta",
+    "type": 2,
+    "money": 2,
+    "difficulty": 3,
+    "description": "A hortobágyi palacsinta olyan finom és olyan laktató, hogy főételként is elmegy.",
+    "image": "pancakes.jpg",
+    "icon": "pancakes.svg",
+    "times": [600, 1800],
+    "defServing": 4,
+    "ingredients": [
+      {"count": 0.5, "unit": "kg darált sertéshús"},
+      {"count": 1, "unit": "db paradicsom"},
+      {"count": 1, "unit": "db paprika"},
+      {"count": 1, "unit": "közepes fej vöröshagyma"},
+      {"count": 2, "unit": "gerezd fokhagyma"},
+      {"count": 175, "unit": "g tejföl"},
+      {"count": 1, "unit": "csipet só"},
+      {"count": 1, "unit": "csipet bors"},
+      {"count": 1, "unit": "csipet fűszerpaprika"},
+      {"count": 0.5, "unit": "evőkanál finomliszt (a habaráshoz, szükség szerint)"},
+      {"count": 3, "unit": "ek napraforgó olaj"},
+      {"count": 50, "unit": "dkg finomliszt"},
+      {"count": 2, "unit": "db tojás"},
+      {"count": 4, "unit": "dl tej"}, 
+      {"count": 1, "unit": "dl szódavíz"},
+      {"count": 1, "unit": "kk só"},
+      {"count": 2, "unit": "csipet cukor"}
+      ],
+    "steps": [
+      "Az apróra vágott hagymát az olajon üvegesre pároljuk, hozzáadjuk a fokhagymát, az apróra vágott paprikát és a paradicsomot. Ha a paradicsom már jól kifőtte a levét hozzáadjuk a darált húst. Főzzük, amíg a hús meg nem puhul.",
+      "Amíg a hús fő, a palacsintákat kisütjük. A hozzávalókat csomómentesen elkeverjük és az átlagos édes palacsintáknál kicsit vastagabban kisütjük.",
+      "Ha a hús elkészült, fűszerezzük pirospaprikával, sózzuk, borsozzuk.",
+      "Kóstolás után egy kisebb szűrővel leszűrjük a hús levét, a húst félretesszük.",
+      "Tejfölös-lisztes habarást készítünk, és besűrítjük a szószt.",
+      "A húsban is elkeverünk 1-2 kk tejfölt, így sokkal krémesebb lesz.",
+      "Végül betöltjük a palacsintákat, és leöntjük a szósszal."
+    ]
+  },
+  "gofri": {
+    "name": "Édes gofri",
+    "type": 3,
+    "money": 1,
+    "difficulty": 1,
+    "description": "Ha egyszer is kipróbálod ezt a receptet, soha többé nem akarsz bolti gofrit vásárolni!",
+    "image": "gofri.jpeg",
+    "icon": "gofri.svg",
+    "times": [1500, 0],
+    "defServing": 4,
+    "ingredients": [
+      {"count": 20, "unit": "dkg finomliszt"},
+      {"count": 1, "unit": "csomag vaníliás cukor"},
+      {"count": 1, "unit": "ek cukor"},
+      {"count": 1, "unit": "csomag sütőpor"},
+      {"count": 2, "unit": "db tojás"},
+      {"count": 2, "unit": "dl tej"},
+      {"count": 2, "unit": "ek vaj"},
+      {"count": 1, "unit": "csipet só"}
+    ],
+    "steps": [
+      "A száraz hozzávalókat összekeverjük egy tálban.",
+      "A tojást, a langyos tejet és az olvasztott vajat pedig egy másik tálban felverjük.",
+      "A liszthez hozzáöntjük jó sűrű kevergetés mellett az előzőleg jól felvert tejes keveréket, majd az egészet kikeverjük úgy, hogy egy jó sűrű, de mégis kissé folyós masszát kapjunk.",
+      "A gofrisütőt olajjal kikenjük, és belemerjük adagonként a gofri masszáját, és megsütjük. A végén ízlésünknek megfelelően fogyasztjuk!"
+    ]
+  },
   "nachos": {
     "name": "Nachos",
     "type": 1,
