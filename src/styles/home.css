@@ -72,7 +72,7 @@ h1 {
 }
 
 .box:hover{
-    transform: scale(110%);
+    transform: scale(103%);
     transition: transform 0.3s ;
     cursor: pointer;
 }
