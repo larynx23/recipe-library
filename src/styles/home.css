@@ -11,6 +11,10 @@ p{
     color: var(--color-reverse);
 }
 
+.filtersvg{
+    width: 30%;
+}
+
 h1 {
     color: var(--color-reverse);
     font-weight: bold;

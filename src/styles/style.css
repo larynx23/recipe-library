@@ -107,6 +107,8 @@ footer a {
   background-color: rgba(0, 0, 0, 0.1);
   border: solid var(--color-reverse) 2px;
   color: var(--color-reverse);
+  width: 130%;
+  margin-left: -30%;
 }
 
 .btn-drop:hover{
