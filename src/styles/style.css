@@ -98,6 +98,23 @@ footer a {
   color: var(--color-reverse);
 }
 
+.dropdown{
+  display: grid;
+  justify-content: end;
+}
+
+.btn-drop{
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid var(--color-reverse) 2px;
+  color: var(--color-reverse);
+}
+
+.btn-drop:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid var(--color-g-six) 2px;
+  color: var(--color-reverse);
+}
+
 .kep{
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgb(49, 49, 49);
