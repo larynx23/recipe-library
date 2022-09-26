@@ -16,8 +16,36 @@ p{
     width: 30%;
 }
 
-div.dropdown div.dropdown-menu.dropdown-menu-end.show div.dropdown-item label{
-    font-family: 'Dancing Script', cursive;
+.dropdown-item, .dropdown-menu{
+    background-color: var(--color-g-three);
+}
+
+.dropdown-item label{
+    font-size: 1.1rem;
+    color: var(--color-reverse);
+}
+
+.dropdown-item:hover{
+    background-color: var(--color-g-five);
+}
+
+.dropdown-item:hover label{
+    color: var(--color-reverse);
+}
+
+div.dropdown button.btn-drop.btn.dropdown-toggle.show{
+    border: solid 2px var(--color-reverse);
+    color: var(--color-reverse);
+}
+
+.dropdown-menu{
+    box-shadow: 2px 2px 5px var(--color-g-one);
+}
+
+input{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
 }
 
 h1 {
