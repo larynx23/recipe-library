@@ -11,7 +11,7 @@ function init() {
             .replaceAll('{{ description }}', receipt.description)
             .replaceAll('{{ sum_times }}', secsToText(receipt.times[0] + receipt.times[1]))
             .replaceAll('{{ difficulty }}', difficultyText[receipt.difficulty])
-            .replaceAll('{{ sefServing }}', receipt.defServing)
+            .replaceAll('{{ type }}', typeText[receipt.type])
             .replaceAll('{{ money }}', moneyText[receipt.money])
     }
 }
