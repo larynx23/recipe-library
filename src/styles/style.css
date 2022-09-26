@@ -98,6 +98,11 @@ footer a {
   color: var(--color-reverse);
 }
 
+.kep{
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgb(49, 49, 49);
+}
+
 button#theme-change {
   background-color: var(--color-g-four);
   border: 0;
