@@ -230,31 +230,49 @@ const receiptData = JSON.parse(`{
       "Végül betöltjük a palacsintákat, és leöntjük a szósszal."
     ]
   },
-  "gofri": {
-    "name": "Édes gofri",
-    "type": 3,
-    "money": 1,
-    "difficulty": 1,
-    "description": "Ha egyszer is kipróbálod ezt a receptet, soha többé nem akarsz bolti gofrit vásárolni!",
-    "image": "gofri.jpeg",
-    "icon": "gofri.svg",
-    "times": [1500, 0],
-    "defServing": 4,
+  "gulyas": {
+    "name": "Tradicionális gulyásleves",
+    "type": 2,
+    "money": 3,
+    "difficulty": 3,
+    "description": "A gulyás külföldön is az egyik legnépszerűbb magyar eredetű étel, amelyet igen sok országban ismernek.",
+    "image": "gulyas.jpeg",
+    "icon": "gulyas.svg",
+    "times": [900, 10800],
+    "defServing": 6,
     "ingredients": [
-      {"count": 20, "unit": "dkg finomliszt"},
-      {"count": 1, "unit": "csomag vaníliás cukor"},
-      {"count": 1, "unit": "ek cukor"},
-      {"count": 1, "unit": "csomag sütőpor"},
-      {"count": 2, "unit": "db tojás"},
-      {"count": 2, "unit": "dl tej"},
-      {"count": 2, "unit": "ek vaj"},
-      {"count": 1, "unit": "csipet só"}
+      {"count": 60, "unit": "dkg marhalábszár "},
+      {"count": 30, "unit": "dkg vöröshagyma "},
+      {"count": 2, "unit": "nagy db sárgarépa "},
+      {"count": 1, "unit": "nagy db fehérrépa"},
+      {"count": 1, "unit": "kis db zeller  "},
+      {"count": 40, "unit": "dkg burgonya (tisztított)"},
+      {"count": 1, "unit": "ek fűszerpaprika (csapott, édesnemes)"},
+      {"count": 0.5, "unit": "ek csípős fűszerpaprika"},
+      {"count": 1, "unit": "ek só (csapott)"},
+      {"count": 1, "unit": "teáskanál őrölt fűszerkömény"},
+      {"count": 2, "unit": "db babérlevél"},
+      {"count": 1, "unit": "teáskanál fekete bors (frissen őrölt)"},
+      {"count": 1, "unit": "kis db paradicsom"},
+      {"count": 1, "unit": "db tv paprika "},
+      {"count": 3, "unit": "gerezd fokhagyma (magyar)"},
+      {"count": 2, "unit": "ek sertészsír (mangalica)"},
+      {"count": 0.5, "unit": "csokor petrezselyem"},
+      {"count": 5, "unit": "db zellerlevél"},
+      {"count": 2.5, "unit": "l víz"},
+      {"count": 1, "unit": "db tojás"},
+      {"count": 80, "unit": "g finomliszt"},
+      {"count": 1, "unit": "teáskanál só"}
     ],
     "steps": [
-      "A száraz hozzávalókat összekeverjük egy tálban.",
-      "A tojást, a langyos tejet és az olvasztott vajat pedig egy másik tálban felverjük.",
-      "A liszthez hozzáöntjük jó sűrű kevergetés mellett az előzőleg jól felvert tejes keveréket, majd az egészet kikeverjük úgy, hogy egy jó sűrű, de mégis kissé folyós masszát kapjunk.",
-      "A gofrisütőt olajjal kikenjük, és belemerjük adagonként a gofri masszáját, és megsütjük. A végén ízlésünknek megfelelően fogyasztjuk!"
+    
+      "A hagymákat kis kockára vágjuk. A húst leöblítjük, szárazra töröljük, majd 2 cm-es kockára daraboljuk.",
+      "A zsírt felhevítjük, megfonnyasztjuk benne a hagymát, majd félrehúzzuk, a fűszerpaprikákkal összekeverjük, felöntjük 1,5 dl vízzel, majd a vizet elfőzve, zsírjára pirítjuk.",
+      "Ekkor hozzáadjuk a marhahúst, és kevergetve fehéredésig pirítjuk. Sózzuk, borsozzuk, köménnyel megszórjuk, hozzáadjuk az áttört fokhagymát, a kis kockára vágott paradicsomot, a kicsumázott egész paprikát, babérlevelet.",
+      "Fedővel lefedve saját levében 90 percet főzzük.Elkészítjük a csipetkét.",
+      "Ezután kerülnek bele a zöldségek: a karikára vágott sárga- és fehérrépa, a kockára vágott zeller, burgonya, az aprított petrezselyem és zellerzöld, felöntjük 2l -2.5 l vízzel.",
+      "Letakarva további 50 percet főzzük. Beletesszük a csipetkét, és 10 perc alatt készre főzzük."
+  
     ]
   },
   "nachos": {
