@@ -190,6 +190,62 @@ const receiptData = JSON.parse(`{
       "A liszthez hozzáöntjük jó sűrű kevergetés mellett az előzőleg jól felvert tejes keveréket, majd az egészet kikeverjük úgy, hogy egy jó sűrű, de mégis kissé folyós masszát kapjunk.",
       "A gofrisütőt olajjal kikenjük, és belemerjük adagonként a gofri masszáját, és megsütjük. A végén ízlésünknek megfelelően fogyasztjuk!"
     ]
+  },
+  "nachos": {
+    "name": "Nachos",
+    "type": 1,
+    "money": 1,
+    "difficulty": 1,
+    "description": "A leggyorsabb nachos, akár egy esti nasinak is elmehet.",
+    "image": "nachos.jpeg",
+    "icon": "nachos.svg",
+    "times": [600, 600],
+    "defServing": 2,
+    "ingredients": [
+      {"count": 20, "unit": "dkg tortilla chips"},
+      {"count": 70, "unit": "g szalámi"},
+      {"count": 100, "unit": "g vörösbab"},
+      {"count": 2, "unit": "ek jalapeño"},
+      {"count": 10, "unit": "db fekete olajbogyó"},
+      {"count": 100, "unit": "g cheddar sajt"},
+      {"count": 3, "unit": "db koktélparadicsom"},
+      {"count": 60, "unit": "g tejföl"},
+      {"count": 1, "unit": "tk fokhagymapor"},
+      {"count": 1, "unit": "ek chiliszósz"}
+    ],
+    "steps": [
+    "Fogjunk egy kisebb tepsit, és a tortillachips felét oszlassuk el szépen az alján. Ezután már kezdhetünk is rétegezni: jöhetnek a szalámifalatok, a vörösbab, a jalapenoszeletek, az olajbogyó-karikák. Ez persze csak ajánlat - bármit tehetünk bele, amit megkívánunk és van otthon.",
+    "Amikor a rétegezéssel készen vagyunk, jöhet a sajt: klasszikusan cheddart szokás használni, de bármilyen sajttal isteni a végeredmény, szóval nyugodtan használjuk a kedvencünket.",
+    "Végül jöhet a tortillachips másik fele, a tetejére pedig paradicsomkarikákat vágunk. 180°C-os sütőbe tesszük, és 10-15 perc alatt készre sütjük.",
+    "Közben egy pohárban összekeverünk egy kevés tejfölt némi fokhagymaporral és srirachaszósszal.",
+    "A mártogatóst a kész nachos tetejére kanalazzuk, majd az egészet megszórjuk aprított petrezselyemmel (vagy korianderrel, vagy újhagyma zölddel, vagy ami éppen van otthon), végül rámorzsolunk egy pár szem tortillachipset."
+    ]
+  },
+  "tatar_beefsteak": {
+    "name": "Tatár beefsteak",
+    "type": 1,
+    "money": 1,
+    "difficulty": 1,
+    "description": "Azoknak, akiknek csak negyed órájuk van a főzésre!",
+    "image": "tatar.jpg",
+    "icon": "tatar.svg",
+    "times": [600, 0],
+    "defServing": 2,
+    "ingredients": [
+      {"count": 20, "unit": "dkg marhabélszín "},
+      {"count": 0.5, "unit": "közepes db vöröshagyma "},
+      {"count": 1, "unit": "db tojássárgája "},
+      {"count": 0.5, "unit": "ek mustár "},
+      {"count": 1, "unit": "ek sűrített paradicsom "},
+      {"count": 1, "unit": "csipet só"},
+      {"count": 1, "unit": "csipet bors"},
+      {"count": 1, "unit": "ek fűszerpaprika "}
+    ],
+    "steps": [
+      "A bélszínt kétszer ledaráltatjuk a hentessel.",
+      "Az összes hozzávalót tálba tesszük, és összekeverjük.",
+      "Szobahőmérsékleten, vajjal, pirítóssal és ízlés szerinti friss zöldségekkel kínáljuk."
+    ]
   }
 }`);
 
