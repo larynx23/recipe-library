@@ -6,18 +6,22 @@ function renderReceipts() {
     const section = document.querySelector('html body main#receptek.container article.row.mt-3.mb-5');
     section.innerHTML = '';
     console.log(toggledReceipts);
-    for (const [name, receipt] of Object.entries(receiptData)) {
-        if (toggledReceipts.includes(receipt.type)) {
-            section.innerHTML += boxDiv
-                .replaceAll('{{ icon }}', receipt.icon)
-                .replaceAll('{{ name_raw }}', name)
-                .replaceAll('{{ name }}', receipt.name)
-                .replaceAll('{{ description }}', receipt.description)
-                .replaceAll('{{ sum_times }}', secsToText(receipt.times[0] + receipt.times[1]))
-                .replaceAll('{{ difficulty }}', difficultyText[receipt.difficulty])
-                .replaceAll('{{ type }}', typeText[receipt.type])
-                .replaceAll('{{ money }}', moneyText[receipt.money]);
+    if (toggledReceipts.length !== 0){
+        for (const [name, receipt] of Object.entries(receiptData)) {
+            if (toggledReceipts.includes(receipt.type)) {
+                section.innerHTML += boxDiv
+                    .replaceAll('{{ icon }}', receipt.icon)
+                    .replaceAll('{{ name_raw }}', name)
+                    .replaceAll('{{ name }}', receipt.name)
+                    .replaceAll('{{ description }}', receipt.description)
+                    .replaceAll('{{ sum_times }}', secsToText(receipt.times[0] + receipt.times[1]))
+                    .replaceAll('{{ difficulty }}', difficultyText[receipt.difficulty])
+                    .replaceAll('{{ type }}', typeText[receipt.type])
+                    .replaceAll('{{ money }}', moneyText[receipt.money]);
+            }
         }
+    } else {
+        section.innerHTML = '<h2 class="text-center my-5">Nincs találat :(</h2>'
     }
 }
 
