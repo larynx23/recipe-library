@@ -9,6 +9,7 @@ body:not(.light) {
     --color-g-four: hsl(0, 0%, 28%);
     --color-g-five: hsl(0, 0%, 35%);
     --color-g-six: hsl(0, 0%, 45%);
+    color-scheme: dark;
     --color-reverse: white;
 }
 
@@ -21,5 +22,6 @@ body.light {
     --color-g-six: hsl(0, 0%, 55%);
     --color-g-seven: hsl(0, 0%, 28%);
     --color-g-eight: hsl(0, 0%, 18%);
+    color-scheme: light;
     --color-reverse: black;
 }
