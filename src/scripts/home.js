@@ -5,6 +5,7 @@ var toggledReceipts = [1, 2, 3];
 function renderReceipts() {
     const section = document.querySelector('html body main#receptek.container article.row.mt-3.mb-5');
     section.innerHTML = '';
+    console.log(toggledReceipts);
     for (const [name, receipt] of Object.entries(receiptData)) {
         if (toggledReceipts.includes(receipt.type)) {
             section.innerHTML += boxDiv
@@ -35,9 +36,10 @@ function initFilter() {
 };
 
 function toggleFilter(num) {
+    console.log(toggledReceipts, num);
     num = Number(num);
     if (toggledReceipts.includes(num)) {
-        toggledReceipts.pop(toggledReceipts.indexOf(num));
+        toggledReceipts.splice(toggledReceipts.indexOf(num), 1);
     } else {
         toggledReceipts.push(num);
     }
