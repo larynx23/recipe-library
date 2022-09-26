@@ -16,6 +16,10 @@ p{
     width: 30%;
 }
 
+div.dropdown div.dropdown-menu.dropdown-menu-end.show div.dropdown-item label{
+    font-family: 'Dancing Script', cursive;
+}
+
 h1 {
     color: var(--color-reverse);
     font-weight: bold;
