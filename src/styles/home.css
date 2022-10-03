@@ -4,7 +4,7 @@
     background-position: center;
     background-attachment: fixed;
     height: 60vh;
-    filter: brightness(70%);
+    filter: brightness(40%);
 }
 
 p{
@@ -22,6 +22,14 @@ p{
 
 .dropdown-item{
     padding: 0;
+}
+
+.focim{
+    position: absolute;
+    top: 25vh;
+    width: 100%;
+    text-align: center;
+    text-shadow: 2px 2px 7px black;
 }
 
 .dropdown-item label{
@@ -55,7 +63,7 @@ input{
 }
 
 h1 {
-    color: var(--color-reverse);
+    color: white;
     font-weight: bold;
     display: block;
     margin: 0 auto;
