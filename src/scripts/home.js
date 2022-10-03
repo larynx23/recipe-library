@@ -21,7 +21,7 @@ function renderReceipts() {
             }
         }
     } else {
-        section.innerHTML = '<h2 class="text-center my-5">Nincs találat :(</h2>'
+        section.innerHTML = '<h2 class="text-center my-5" style="color: var(--color-reverse);">Nincs találat :(</h2>'
     }
 }
 
