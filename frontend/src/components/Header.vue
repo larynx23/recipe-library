@@ -2,7 +2,7 @@
   <header>
     <nav class='fixed top-0 left-0 right-0 py-3 z-50 transition duration-300 dark:bg-zinc-900 bg-zinc-100'>
       <div class="container mx-auto px-4 flex justify-between items-center">
-        <a href="#" class='dark:text-white text-black font-bold uppercase text-xl'>{{ title }}</a>
+        <RouterLink to="/" class='dark:text-white text-black font-bold uppercase text-xl'>{{ title }} </RouterLink>
 
         <button @click="toggleTheme"
           class='w-9 h-9 rounded-full flex items-center justify-center transition duration-300 dark:bg-zinc-600 bg-zinc-400'>
