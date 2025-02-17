@@ -38,7 +38,7 @@
         </table>
       </section>
 
-      <section id="ingredients" class="grid grid-cols-1 text-lg">
+      <section class="grid grid-cols-1 text-lg">
         <div class="grid grid-cols-[1fr_auto_auto_auto_auto] items-center gap-2 border-t border-zinc-600 dark:border-white py-2">
           <h2 class="font-bold mb-0 dark:text-white">Hozzávalók</h2>
           <button @click="decreaseServings" 
@@ -65,7 +65,7 @@
         </ul>
       </section>
 
-      <section id="steps" class="py-2">
+      <section class="py-2">
         <div class="border-t border-zinc-600 dark:border-white py-2">
           <h2 class="font-bold mb-0 dark:text-white">Elkészítés</h2>
         </div>
