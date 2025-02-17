@@ -18,14 +18,16 @@
       </div>
     </nav>
 
-    <section class="w-full">
-      <div class="h-[60vh] bg-center bg-fixed brightness-50 bg-[url('/images/cookies.jpg')]"></div>
-    </section>
+    <template v-if="isHomePage">
+      <section class="w-full">
+        <div class="h-[60vh] bg-center bg-fixed brightness-50 bg-[url('/images/cookies.jpg')]"></div>
+      </section>
 
-    <h1
-      class="absolute top-1/4 w-full text-center text-white font-bold text-7xl font-['Dancing_Script'] drop-shadow-[2px_2px_7px_black]">
-      {{ heading }}
-    </h1>
+      <h1
+        class="absolute top-1/4 w-full text-center text-white font-bold text-7xl font-['Dancing_Script'] drop-shadow-[2px_2px_7px_black]">
+        {{ heading }}
+      </h1>
+    </template>
   </header>
 </template>
 
@@ -36,6 +38,12 @@ export default {
       isDark: this.initializeTheme(),
       title: 'Oregano',
       heading: 'Kedvenc ételeink'
+    }
+  },
+
+  computed: {
+    isHomePage() {
+      return this.$route.path === '/'
     }
   },
 
@@ -53,7 +61,7 @@ export default {
         return savedTheme === 'dark'
       }
       return window.matchMedia('(prefers-color-scheme: dark)').matches
-    }
+    },
   }
 }
 </script>

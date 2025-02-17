@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <main class='min-h-screen max-w-5xl mx-auto px-2 py-4 grid gap-2' @click="selectStep(null)">
+    <main class='min-h-screen max-w-5xl mx-auto px-2 py-4 pt-24 grid gap-2' @click="selectStep(null)">
       <section class="flex flex-col items-center gap-4" >
         <h1 class="text-4xl font-bold dark:text-white">{{ recipe.name }}</h1>
 
