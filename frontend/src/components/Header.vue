@@ -1,12 +1,12 @@
 <template>
   <header>
-    <nav :class="['fixed top-0 left-0 right-0 py-3 z-50 transition duration-300', isDark ? 'bg-zinc-900' : 'bg-zinc-100']">
+    <nav class='fixed top-0 left-0 right-0 py-3 z-50 transition duration-300 dark:bg-zinc-900 bg-zinc-100'>
       <div class="container mx-auto px-4 flex justify-between items-center">
-        <a href="#" :class="[isDark ? 'text-white' : 'text-black', 'font-bold uppercase text-xl']">{{ title }}</a>
+        <a href="#" class='dark:text-white text-black font-bold uppercase text-xl'>{{ title }}</a>
 
         <button @click="toggleTheme"
-          :class="['w-9 h-9 rounded-full flex items-center justify-center transition duration-300', isDark ? 'bg-zinc-600' : 'bg-zinc-400']">
-          <svg v-if="isDark" class="w-5 h-5 text-white" viewBox="0 0 24 24">
+          class='w-9 h-9 rounded-full flex items-center justify-center transition duration-300 dark:bg-zinc-600 bg-zinc-400'>
+          <svg v-if="this.isDark" class="w-5 h-5 text-white" viewBox="0 0 24 24">
             <path fill="currentColor"
               d="M12 21q-3.75 0-6.375-2.625T3 12q0-3.75 2.625-6.375T12 3q.35 0 .688.025q.337.025.662.075q-1.025.725-1.637 1.887Q11.1 6.15 11.1 7.5q0 2.25 1.575 3.825Q14.25 12.9 16.5 12.9q1.375 0 2.525-.613q1.15-.612 1.875-1.637q.05.325.075.662Q21 11.65 21 12q0 3.75-2.625 6.375T12 21Z" />
           </svg>
@@ -33,7 +33,7 @@
 export default {
   data() {
     return {
-      isDark: true,
+      isDark: this.initializeTheme(),
       title: 'Oregano',
       heading: 'Kedvenc ételeink'
     }
@@ -41,10 +41,19 @@ export default {
 
   methods: {
     toggleTheme() {
-      this.isDark = !this.isDark;
-    }
-  },
+      this.isDark = !this.isDark
+      document.documentElement.classList.toggle('dark')
+      localStorage.setItem('theme', this.isDark ? 'dark' : 'light')
+    },
 
-  
+    initializeTheme() {
+      const savedTheme = localStorage.getItem('theme')
+      document.documentElement.classList = savedTheme;
+      if (savedTheme) {
+        return savedTheme === 'dark'
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+    }
+  }
 }
 </script>

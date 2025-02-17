@@ -1,10 +1,10 @@
 <template>
-    <div class="bg-gray-300 min-h-screen">
-    <Header />
-    <main class="p-24">
-        <slot/>
-    </main>
-    <Footer />
+    <div class="min-h-screen transition-colors duration-300 bg-zinc-100 dark:bg-zinc-800">
+        <Header />
+        <main class="container mx-auto lg:max-w-6xl">
+            <slot />
+        </main>
+        <Footer />
     </div>
 </template>
 
