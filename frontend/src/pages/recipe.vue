@@ -1,7 +1,7 @@
 <template>
   <Layout>
-    <main class='min-h-screen max-w-5xl mx-auto px-2 py-4 grid gap-2'>
-      <section class="flex flex-col items-center gap-4">
+    <main class='min-h-screen max-w-5xl mx-auto px-2 py-4 grid gap-2' @click="selectStep(null)">
+      <section class="flex flex-col items-center gap-4" >
         <h1 class="text-4xl font-bold dark:text-white">{{ recipe.name }}</h1>
 
         <div class="flex items-center justify-center gap-4">
@@ -73,7 +73,7 @@
           <li v-for="(step, i) in recipe.steps" :key="i"
             class="p-2 text-lg mb-2 transition-all duration-200 cursor-pointer bg-zinc-200 dark:bg-zinc-900 dark:text-white hover:translate-x-2.5 hover:bg-zinc-400 dark:hover:bg-zinc-700"
             :class="{ 'translate-x-2.5 bg-zinc-400 dark:bg-zinc-700': selectedStep === i }"
-            @click="selectStep(i)">
+            @click.stop="selectStep(i)">
             <span class="text-zinc-500 dark:text-zinc-400">{{ i + 1 }}. </span>
             {{ step }}
           </li>
