@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen transition-colors duration-300 bg-zinc-100 dark:bg-zinc-800">
+    <div class="min-h-screen transition-colors duration-300 bg-zinc-200 dark:bg-zinc-800">
         <Header />
         <main class="container mx-auto lg:max-w-6xl">
             <slot />
