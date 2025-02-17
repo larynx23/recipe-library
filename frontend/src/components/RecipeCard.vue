@@ -1,19 +1,42 @@
 <template>
   <RouterLink
+    :to="`/recipe/${recipe.raw_name}`"
     class="bg-zinc-400 dark:bg-zinc-700 flex flex-col justify-center items-center w-64 p-5 transform transition duration-300 hover:scale-105">
-    <img src="" class="w-20 h-20" />
-    <h3 class="text-2xl p-2 text-black dark:text-white">Etel nev</h3>
-    <p class="text-black dark:text-zinc-200">leiras leiras recept leiras. nagyon finom.</p>
+    <img :src="`/images/${recipe.raw_name}.jpg`" class="w-20 h-20" />
+    <h3 class="text-2xl p-2 text-black dark:text-white">{{ recipe.display_name }}</h3>
+    <p class="text-black dark:text-zinc-200">{{ recipe.description }}</p>
     <hr class="w-full my-2 border-black dark:border-white" />
     <div class="w-full text-black dark:text-white">
       <div class="flex justify-between">
-        <p>30p</p>
-        <p>konnyu</p>
+        <p>{{ recipe.time }}</p>
+        <p>{{ getDifficulty }}</p>
       </div>
       <div class="flex justify-between">
-        <p>kaja</p>
-        <p>atlagos</p>
+        <p>{{ recipe.type }}</p>
+        <p>{{ getCost }}</p>
       </div>
     </div>
   </RouterLink>
 </template>
+
+<script>
+export default {
+  props: {
+    recipe: {
+      required: true
+    }
+  },
+
+  computed: {
+    getDifficulty() {
+      const difficulties = ['könnyű', 'közepes', 'nehéz']
+      return difficulties[this.recipe.difficulty - 1] || 'ismeretlen'
+    },
+
+    getCost() {
+      const costs = ['olcsó', 'átlagos', 'drága']
+      return costs[this.recipe.cost - 1] || 'ismeretlen'
+    }
+  }
+}
+</script>

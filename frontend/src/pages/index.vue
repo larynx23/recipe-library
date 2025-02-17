@@ -30,7 +30,7 @@
       </section>
     </article>
     <div class="grid justify-items-center sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 relative">
-      <RecipeCard v-for="i in 5" :key="i"/>
+      <RecipeCard v-for="r in this.exampleRecipes" :key="i" :recipe="r" />
     </div>
   </Layout>
 </template>
@@ -49,6 +49,80 @@ export default {
     return {
       isDropdownOpen: false,
       types: ["előétel", "főétel", "desszert", "egyéb"],
+      exampleRecipes: [
+      {
+        display_name: "Almás pite",
+        raw_name: "almas_pite",
+        type: "desszert",
+        cost: 2,
+        difficulty: 3,
+        description: "lorem ipsum",
+        prepare_time: 30,
+        cooking_time: 30,
+        time: 60,
+        default_serving: 12
+      },
+      {
+        display_name: "Almás pite",
+        raw_name: "almas_pite",
+        type: "desszert",
+        cost: 2,
+        difficulty: 3,
+        description: "lorem ipsum",
+        prepare_time: 30,
+        cooking_time: 30,
+        time: 60,
+        default_serving: 12
+      },
+      {
+        display_name: "Almás pite",
+        raw_name: "almas_pite",
+        type: "desszert",
+        cost: 2,
+        difficulty: 3,
+        description: "lorem ipsum",
+        prepare_time: 30,
+        cooking_time: 30,
+        time: 60,
+        default_serving: 12
+      },
+      {
+        display_name: "Almás pite",
+        raw_name: "almas_pite",
+        type: "desszert",
+        cost: 2,
+        difficulty: 3,
+        description: "lorem ipsum",
+        prepare_time: 30,
+        cooking_time: 30,
+        time: 60,
+        default_serving: 12
+      },
+      {
+        display_name: "Almás pite",
+        raw_name: "almas_pite",
+        type: "desszert",
+        cost: 2,
+        difficulty: 3,
+        description: "lorem ipsum",
+        prepare_time: 30,
+        cooking_time: 30,
+        time: 60,
+        default_serving: 12
+      },
+      {
+        display_name: "Almás pite",
+        raw_name: "almas_pite",
+        type: "desszert",
+        cost: 2,
+        difficulty: 3,
+        description: "lorem ipsum",
+        prepare_time: 30,
+        cooking_time: 30,
+        time: 60,
+        default_serving: 12
+      },
+      ]
     }
   },
 
