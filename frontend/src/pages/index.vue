@@ -2,7 +2,7 @@
   <Layout>
     <article class="flex flex-wrap">
       <section class="w-full">
-        <p class="pt-5 text-center font-['Dancing_Script']">
+        <p class="pt-5 dark:text-white  text-center">
           A jól kiválasztott recept bizony nem elég a sütemények készítéséhez. Legtöbbször felületesek a leírások, és
           alapvető lépéseket nem tartalmaznak.
           Minden esetben olvasd végig a receptet és számold meg a hozzávalók mennyiségét. Ha olyan sütit készítesz,
@@ -13,7 +13,7 @@
       <section class="w-full my-5">
         <div class="dropdown flex justify-end">
           <button type="button"
-            class="flex items-center px-4 py-2 border-2 border-white text-white hover:border-zinc-500 bg-black/10 transition-colors duration-200"
+            class="flex items-center px-10 py-2 rounded-md border-2 dark:border-white dark:text-white hover:border-zinc-500 dark:bg-zinc-900 border-black text-black bg-zinc-400 transition-colors duration-200"
             @click="toggleDropdown">
             <img src="/images/filter.svg" class="w-[27px] mr-2" alt="Filter">
             Szűrő
@@ -21,7 +21,7 @@
           <div v-show="isDropdownOpen" class="z-10 absolute mt-12 bg-zinc-800 shadow-lg rounded-md overflow-hidden">
             <div v-for="type in types" :key="type" class="hover:bg-zinc-600 transition-colors duration-200">
               <label class="flex items-center px-4 py-2 text-white cursor-pointer w-full">
-                <input type="checkbox" @change="toggleFilter(type)" :id="`${type}_check`" class="w-4 h-4 mr-2">
+                <input type="checkbox" :id="`${type}_check`" class="w-4 h-4 mr-2">
                 {{ type }}
               </label>
             </div>
@@ -30,7 +30,7 @@
       </section>
     </article>
     <div class="grid justify-items-center sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 relative">
-      <RecipeCard v-for="i in 5" />
+      <RecipeCard v-for="i in 5" :key="i"/>
     </div>
   </Layout>
 </template>
@@ -48,6 +48,7 @@ export default {
   data() {
     return {
       isDropdownOpen: false,
+      types: ["előétel", "főétel", "desszert", "egyéb"],
     }
   },
 
