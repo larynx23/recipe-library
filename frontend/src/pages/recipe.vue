@@ -60,7 +60,7 @@
         </div>
         <ul class="dark:text-white">
           <li v-for="(ingredient, i) in recipe.ingredients" :key="i">
-            <span>{{ ingredient.count * servings }}</span> {{ ingredient.unit }}
+            <span>{{ (((parseFloat(ingredient.count) || 0) * servings) / recipe.default_serving).toFixed(1) }}</span> {{ ingredient.unit }}
           </li>
         </ul>
       </section>
@@ -75,7 +75,7 @@
             :class="{ 'translate-x-2.5 bg-zinc-400 dark:bg-zinc-700': selectedStep === i }"
             @click.stop="selectStep(i)">
             <span class="text-zinc-500 dark:text-zinc-400">{{ i + 1 }}. </span>
-            {{ step }}
+            {{ step.description }}
           </li>
         </ol>
       </section>
@@ -85,34 +85,17 @@
 
 <script>
 import Layout from '../layouts/Layout.vue'
+import { mapActions } from 'pinia';
+import { useRecipeStore } from '@stores/RecipeStore';
 
 export default {
   components: {
     Layout
   },
-
   data() {
     return {
       selectedStep: null,
-      recipe: {
-        name: 'Recipe Name',
-        image: 'example.jpg',
-        default_serving: 8,
-        difficulty: 3,
-        cost: 2,
-        prepare_time: 30,
-        cooking_time: 45,
-        time: 75,
-        ingredients: [
-          { count: 2, unit: 'db tojás' },
-          { count: 200, unit: 'g liszt' }
-        ],
-        steps: [
-          'First step instruction',
-          'Second step instruction',
-          'Third step instruction'
-        ]
-      },
+      recipe: {},
       servings: 1
     }
   },
@@ -130,6 +113,7 @@ export default {
   },
 
   methods: {
+    ...mapActions(useRecipeStore, ['getRecipe']),
     formatTime(minutes) {
       const hours = Math.floor(minutes / 60)
       const mins = minutes % 60
@@ -149,7 +133,8 @@ export default {
     }
   },
 
-  mounted() {
+  async mounted() {
+    this.recipe = await this.getRecipe(this.$route.params.id)
     this.servings = this.recipe.default_serving;
   }
 }

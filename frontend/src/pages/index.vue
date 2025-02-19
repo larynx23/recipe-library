@@ -30,7 +30,7 @@
       </section>
     </article>
     <div class="grid justify-items-center sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 relative">
-      <RecipeCard v-for="r in this.exampleRecipes" :key="i" :recipe="r" />
+      <RecipeCard v-for="r in this.recipes" :recipe="r" />
     </div>
   </Layout>
 </template>
@@ -38,6 +38,8 @@
 <script>
 import Layout from '../layouts/Layout.vue'
 import RecipeCard from '../components/RecipeCard.vue'
+import { useRecipeStore } from '@stores/RecipeStore';
+import { mapActions } from 'pinia';
 
 export default {
   components: {
@@ -49,87 +51,17 @@ export default {
     return {
       isDropdownOpen: false,
       types: ["előétel", "főétel", "desszert", "egyéb"],
-      exampleRecipes: [
-      {
-        display_name: "Almás pite",
-        raw_name: "almas_pite",
-        type: "desszert",
-        cost: 2,
-        difficulty: 3,
-        description: "lorem ipsum",
-        prepare_time: 30,
-        cooking_time: 30,
-        time: 60,
-        default_serving: 12
-      },
-      {
-        display_name: "Almás pite",
-        raw_name: "almas_pite",
-        type: "desszert",
-        cost: 2,
-        difficulty: 3,
-        description: "lorem ipsum",
-        prepare_time: 30,
-        cooking_time: 30,
-        time: 60,
-        default_serving: 12
-      },
-      {
-        display_name: "Almás pite",
-        raw_name: "almas_pite",
-        type: "desszert",
-        cost: 2,
-        difficulty: 3,
-        description: "lorem ipsum",
-        prepare_time: 30,
-        cooking_time: 30,
-        time: 60,
-        default_serving: 12
-      },
-      {
-        display_name: "Almás pite",
-        raw_name: "almas_pite",
-        type: "desszert",
-        cost: 2,
-        difficulty: 3,
-        description: "lorem ipsum",
-        prepare_time: 30,
-        cooking_time: 30,
-        time: 60,
-        default_serving: 12
-      },
-      {
-        display_name: "Almás pite",
-        raw_name: "almas_pite",
-        type: "desszert",
-        cost: 2,
-        difficulty: 3,
-        description: "lorem ipsum",
-        prepare_time: 30,
-        cooking_time: 30,
-        time: 60,
-        default_serving: 12
-      },
-      {
-        display_name: "Almás pite",
-        raw_name: "almas_pite",
-        type: "desszert",
-        cost: 2,
-        difficulty: 3,
-        description: "lorem ipsum",
-        prepare_time: 30,
-        cooking_time: 30,
-        time: 60,
-        default_serving: 12
-      },
-      ]
+      recipes: [],
     }
   },
-
   methods: {
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen
     },
+    ...mapActions(useRecipeStore, ['getRecipes']),
+  },
+  async mounted() {
+    this.recipes = await this.getRecipes(1)
   }
 }
 </script>
