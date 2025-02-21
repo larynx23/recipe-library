@@ -14,6 +14,12 @@ docker compose exec backend composer install
 
 docker compose exec backend php artisan migrate
 
+docker compose exec backend php artisan serve
+
+cd frontend/
+
+npm run dev
+
 if [ -z "${APP_KEY}" ]; then
     docker compose exec backend php artisan key:generate
 else
