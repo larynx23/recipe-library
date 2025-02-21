@@ -20,5 +20,9 @@ export const useRecipeStore = defineStore('recipes', {
             const r = await http.post(`api/recipes`, recipe);
             return r.data;
         },
+        async removeRecipe(id) {
+            const r = await http.delete(`api/recipes/${id}`);
+            return r.data;
+        }
     }
 })
