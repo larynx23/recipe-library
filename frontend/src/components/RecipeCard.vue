@@ -12,7 +12,7 @@
         <p>{{ getDifficulty }}</p>
       </div>
       <div class="flex justify-between">
-        <p>{{ recipe.type }}</p>
+        <p>{{ getType }}</p>
         <p>{{ getCost }}</p>
       </div>
     </div>
@@ -36,7 +36,13 @@ export default {
     getCost() {
       const costs = ['olcsó', 'átlagos', 'drága']
       return costs[this.recipe.cost - 1] || 'ismeretlen'
-    }
+    },
+
+    getType() {
+      const costs = ['előétel', 'főétel', 'desszert', 'egyéb']
+      return costs[this.recipe.type - 1] || 'ismeretlen'
+    },
+
   }
 }
 </script>
