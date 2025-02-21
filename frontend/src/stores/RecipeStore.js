@@ -23,6 +23,14 @@ export const useRecipeStore = defineStore('recipes', {
         async removeRecipe(id) {
             const r = await http.delete(`api/recipes/${id}`);
             return r.data;
+        },
+        async removeRecipe(id) {
+            const r = await http.delete(`api/recipes/${id}`);
+            return r.data;
+        },
+        async updateRecipe({id, recipe}) {
+            const r = await http.put(`api/recipes/${id}`, recipe);
+            return r.data
         }
     }
 })

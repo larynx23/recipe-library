@@ -3,6 +3,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Index from "../pages/index.vue";
 import Recipe from "../pages/recipe.vue";
 import AddRecipe from "../pages/add.vue";
+import EditRecipe from "../pages/edit.vue";
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     name: "add",
     path: "/add",
     component: AddRecipe,
+  },
+  {
+    name: "edit",
+    path: "/recipe/edit/:id",
+    component: EditRecipe,
   }
 ];
 
