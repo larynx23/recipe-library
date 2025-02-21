@@ -10,7 +10,7 @@ return new class extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('type');
+            $table->integer('type');
             $table->integer('cost');
             $table->integer('difficulty');
             $table->text('description');
