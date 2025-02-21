@@ -8,7 +8,7 @@
     <hr class="w-full my-2 border-black dark:border-white" />
     <div class="w-full text-black dark:text-white">
       <div class="flex justify-between">
-        <p>{{ recipe.time }}</p>
+        <p>{{ getTotalTime }}</p>
         <p>{{ getDifficulty }}</p>
       </div>
       <div class="flex justify-between">
@@ -42,6 +42,10 @@ export default {
       const costs = ['előétel', 'főétel', 'desszert', 'egyéb']
       return costs[this.recipe.type - 1] || 'ismeretlen'
     },
+
+    getTotalTime() {
+      return this.recipe.cooking_time + this.recipe.prepare_time
+    }
 
   }
 }

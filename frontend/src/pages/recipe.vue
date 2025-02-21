@@ -43,7 +43,7 @@
           <tr class="text-center">
             <td class="py-1 px-4">{{ formatTime(recipe.prepare_time) }}</td>
             <td class="py-1 px-4">{{ formatTime(recipe.cooking_time) }}</td>
-            <td class="py-1 px-4">{{ formatTime(recipe.time) }}</td>
+            <td class="py-1 px-4">{{ formatTime(getTotalTime) }}</td>
           </tr>
         </table>
       </section>
@@ -119,6 +119,10 @@ export default {
     getCost() {
       const costs = ['Olcsó', 'Átlagos', 'Drága']
       return costs[this.recipe.cost - 1] || 'Ismeretlen'
+    },
+
+    getTotalTime() {
+      return this.recipe.cooking_time + this.recipe.prepare_time
     }
   },
 
