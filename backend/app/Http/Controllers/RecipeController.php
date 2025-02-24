@@ -52,8 +52,11 @@ class RecipeController extends Controller
     public function update(Request $request, $id)
     {
         $recipe = Recipe::findOrFail($id);
-        
-        $recipe->update($request->except(['steps', 'ingredients']));
+        $updateData = $request->except(['steps', 'ingredients']);
+        if ($request->has('difficulty')) {
+            $updateData['difficulty'] = $request->difficulty;
+        }
+        $recipe->update($updateData);
 
         if ($request->has('steps')) {
             $existingStepIds = $recipe->steps->pluck('id')->toArray();
