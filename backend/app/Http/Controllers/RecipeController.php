@@ -6,25 +6,26 @@ use Illuminate\Http\Request;
 use App\Models\Recipe;
 use App\Models\Step;
 use App\Models\Ingredient;
+use Illuminate\Support\Facades\Auth;
 
 
 
 class RecipeController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $request->validate([
-            'user_id' => 'required|integer|exists:users,id',
-        ]);
-
-        $userId = $request->input('user_id');
-        $recipes = Recipe::with(['steps', 'ingredients'])->where('user_id', $userId)->get();
+        $recipes = Recipe::with(['steps', 'ingredients'])->where('user_id', Auth::id())->get();
         return response()->json($recipes);
     }
 
     public function store(Request $request)
     {
-        $recipe = Recipe::create($request->all());
+
+        $data = array_merge($request->all(), [
+            'user_id' => Auth::id()
+        ]);
+
+        $recipe = Recipe::create($data);
 
         if ($request->has('steps')) {
             foreach ($request->steps as $stepData) {
@@ -45,13 +46,15 @@ class RecipeController extends Controller
 
     public function show($id)
     {
-        $recipe = Recipe::with(['steps', 'ingredients'])->findOrFail($id);
+        $recipe = Recipe::with(['steps', 'ingredients'])
+            ->where('user_id', Auth::id())
+            ->findOrFail($id);
         return response()->json($recipe);
     }
 
     public function update(Request $request, $id)
     {
-        $recipe = Recipe::findOrFail($id);
+        $recipe = Recipe::where('user_id', Auth::id())->findOrFail($id);
         
         $recipe->update($request->except(['steps', 'ingredients']));
 
@@ -106,7 +109,7 @@ class RecipeController extends Controller
 
     public function destroy($id)
     {
-        $recipe = Recipe::findOrFail($id);
+        $recipe = Recipe::where('user_id', Auth::id())->findOrFail($id);
         $recipe->delete();
         return response()->json(null, 204);
     }
