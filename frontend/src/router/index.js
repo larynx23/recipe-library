@@ -6,7 +6,6 @@ import AddRecipe from "../pages/add.vue";
 import EditRecipe from "../pages/edit.vue";
 import Register from "../pages/register.vue";
 import Login from "../pages/login.vue";
-import ForgotPassword from "../pages/forgot_password.vue";
 import Profile from "../pages/profile.vue";
 
 const routes = [
