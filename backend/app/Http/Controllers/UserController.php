@@ -19,13 +19,11 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
         ]);
 
         $user = User::create([
             'name' => $validated['name'],
-            'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
         ]);
 
@@ -47,12 +45,10 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'password' => ['nullable', 'string', 'min:8'],
         ]);
 
         $user->name = $validated['name'];
-        $user->email = $validated['email'];
         
         if (isset($validated['password'])) {
             $user->password = Hash::make($validated['password']);
