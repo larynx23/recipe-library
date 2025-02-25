@@ -43,10 +43,12 @@
         </p>
       </div>
     </section>
+
   </article>
 </template>
 
 <script>
+import { useAuthStore } from '../stores/auth'
 import Layout from '../layouts/Layout.vue'
 
 export default {
@@ -64,12 +66,31 @@ export default {
       formData: {
         name: '',
         password: ''
-      }
+      },
+      error: null
+    }
+  },
+  watch: {
+    '$route'(to) {
+      window.location.reload()
     }
   },
   methods: {
-    handleSubmit() {
-      
+    async handleSubmit() {
+      this.error = null
+      const auth = useAuthStore()
+
+      try {
+        if (this.isLogin) {
+          await auth.login(this.formData)
+          await this.$router.push({ name: 'home' })
+        } else {
+          await auth.register(this.formData)
+          await this.$router.push({ name: 'login' })
+        }
+      } catch (err) {
+        this.error = err
+      }
     }
   }
 }

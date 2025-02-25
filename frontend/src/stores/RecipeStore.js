@@ -9,27 +9,27 @@ export const useRecipeStore = defineStore('recipes', {
     },
     actions: {
         async getRecipes(userId){
-            const r = await http.get(`api/recipes?user_id=${userId}`);
+            const r = await http.get(`recipes?user_id=${userId}`);
             return r.data;
         },
         async getRecipe(id) {
-            const r = await http.get(`api/recipes/${id}`);
+            const r = await http.get(`recipes/${id}`);
             return r.data;
         },
         async postRecipe(recipe) {
-            const r = await http.post(`api/recipes`, recipe);
+            const r = await http.post(`recipes`, recipe);
             return r.data;
         },
         async removeRecipe(id) {
-            const r = await http.delete(`api/recipes/${id}`);
+            const r = await http.delete(`recipes/${id}`);
             return r.data;
         },
         async removeRecipe(id) {
-            const r = await http.delete(`api/recipes/${id}`);
+            const r = await http.delete(`recipes/${id}`);
             return r.data;
         },
         async updateRecipe({id, recipe}) {
-            const r = await http.put(`api/recipes/${id}`, recipe);
+            const r = await http.put(`recipes/${id}`, recipe);
             return r.data
         }
     }
