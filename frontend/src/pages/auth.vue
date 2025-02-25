@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <UserForm :isLogin="true" />
+    <UserForm :isLogin="this.isLogin" />
   </Layout>
 </template>
 
@@ -9,6 +9,16 @@ import UserForm from '../components/UserForm.vue';
 import Layout from '../layouts/Layout.vue'
 
 export default {
+  data() {
+    return {
+      isLogin: Boolean
+    }
+  },
+  
+  mounted() {
+    this.isLogin = this.$route.path === '/login'
+  },
+
   components: {
     Layout,
     UserForm

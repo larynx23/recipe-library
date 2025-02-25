@@ -4,8 +4,7 @@ import Index from "../pages/index.vue";
 import Recipe from "../pages/recipe.vue";
 import AddRecipe from "../pages/add.vue";
 import EditRecipe from "../pages/edit.vue";
-import Register from "../pages/register.vue";
-import Login from "../pages/login.vue";
+import Auth from "../pages/auth.vue";
 import Profile from "../pages/profile.vue";
 
 const routes = [
@@ -32,12 +31,12 @@ const routes = [
   {
     name: "register",
     path: "/register",
-    component: Register,
+    component: Auth,
   },
   {
     name: "login",
     path: "/login",
-    component: Login,
+    component: Auth,
   },
   {
     name: "profile",
