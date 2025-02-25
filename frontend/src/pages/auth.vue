@@ -11,7 +11,7 @@ import Layout from '../layouts/Layout.vue'
 export default {
   data() {
     return {
-      isLogin: Boolean
+      isLogin: false
     }
   },
   
