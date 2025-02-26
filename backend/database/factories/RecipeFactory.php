@@ -26,7 +26,7 @@ class RecipeFactory extends Factory
             'description' => $this->faker->paragraph,
             'prepare_time' => $this->faker->numberBetween(5, 20),
             'cooking_time' => $this->faker->numberBetween(10, 40),
-            'image' => 'recipes/' . $this->recipeTypes[$type] . '.svg',
+            'image' => null,
             'default_serving' => $this->faker->numberBetween(2, 8),
             'user_id' => User::factory()
         ];
