@@ -59,8 +59,8 @@ export default {
   data() {
     return {
       isDark: this.initializeTheme(),
-      title: 'Oregano',
-      heading: 'Kedvenc ételeink'
+      title: 'Receptkönyv',
+      heading: 'Receptkönyv'
     }
   },
 
