@@ -59,57 +59,38 @@ class RecipeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $recipe = Recipe::findOrFail($id);
+        $recipeData = json_decode($request->recipe, true);
+
+        $recipe = Recipe::where('user_id', Auth::id())->findOrFail($id);
         
-        $recipe->update($request->except(['steps', 'ingredients']));
-
-        if ($request->has('steps')) {
-            $existingStepIds = $recipe->steps->pluck('id')->toArray();
-            $newStepIds = [];
-            foreach ($request->steps as $stepData) {
-                if (isset($stepData['id'])) {
-                    $step = Step::find($stepData['id']);
-                    if ($step) {
-                        $step->fill($stepData);
-                        $step->save();
-                        $newStepIds[] = $step->id;
-                    }
-                } else {
-                    $step = new Step($stepData);
-                    $recipe->steps()->save($step);
-                    $newStepIds[] = $step->id;
-                }
-            }
-
-            Step::whereIn('id', array_diff($existingStepIds, $newStepIds))
-                ->where('recipe_id', $recipe->id)
-                ->delete();
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/recipes', $filename);
+            $recipeData['image'] = 'recipes/' . $filename;
         }
 
-        if ($request->has('ingredients')) {
-            $existingIngredientIds = $recipe->ingredients->pluck('id')->toArray();
-            $newIngredientIds = [];
-            foreach ($request->ingredients as $ingredientData) {
-                if (isset($ingredientData['id'])) {
-                    $ingredient = Ingredient::find($ingredientData['id']);
-                    if ($ingredient) {
-                        $ingredient->fill($ingredientData);
-                        $ingredient->save();
-                        $newIngredientIds[] = $ingredient->id;
-                    }
-                } else {
-                    $ingredient = new Ingredient($ingredientData);
-                    $recipe->ingredients()->save($ingredient);
-                    $newIngredientIds[] = $ingredient->id;
-                }
+        $recipe->update($recipeData);
+
+        if (isset($recipeData['steps'])) {
+            $recipe->steps()->delete();
+            
+            foreach ($recipeData['steps'] as $stepData) {
+                $step = new Step($stepData);
+                $recipe->steps()->save($step);
             }
+        }
 
-            Ingredient::whereIn('id', array_diff($existingIngredientIds, $newIngredientIds))
-                ->where('recipe_id', $recipe->id)
-                ->delete();
-    }
+        if (isset($recipeData['ingredients'])) {
+            $recipe->ingredients()->delete();
+            
+            foreach ($recipeData['ingredients'] as $ingredientData) {
+                $ingredient = new Ingredient($ingredientData);
+                $recipe->ingredients()->save($ingredient);
+            }
+        }
 
-    return response()->json($recipe->load(['steps', 'ingredients']));
+        return response()->json($recipe->load(['steps', 'ingredients']));
     }
 
     public function destroy($id)

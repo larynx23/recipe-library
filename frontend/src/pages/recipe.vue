@@ -112,7 +112,7 @@ export default {
 
   computed: {
     getDifficulty() {
-      const difficulties = ['Nagyon könnyű', 'Könnyű', 'Közepes', 'Nehéz', 'Nagyon nehéz']
+      const difficulties = ['Könnyű', 'Közepes', 'Nehéz']
       return difficulties[this.recipe.difficulty - 1] || 'Ismeretlen'
     },
 

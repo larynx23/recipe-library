@@ -28,9 +28,14 @@ export const useRecipeStore = defineStore('recipes', {
             const r = await http.delete(`recipes/${id}`);
             return r.data;
         },
-        async updateRecipe({id, recipe}) {
-            const r = await http.put(`recipes/${id}`, recipe);
-            return r.data
+        async updateRecipe({ id, formData }) {
+            formData.append('_method', 'PUT');
+            const r = await http.post(`recipes/${id}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            return r.data;
         }
     }
 })
