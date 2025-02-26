@@ -76,7 +76,7 @@
           </select>
         </div>
         <div>
-          <label class="block text-md text-black dark:text-white">Nehézség</label>
+          <label class="block text-md text-black dark:text-white mb-1">Nehézség</label>
           <select 
             v-model.number="recipeData.difficulty" 
             class="w-full p-2 border rounded"
