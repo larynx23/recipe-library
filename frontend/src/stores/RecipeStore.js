@@ -8,8 +8,8 @@ export const useRecipeStore = defineStore('recipes', {
         }
     },
     actions: {
-        async getRecipes(userId){
-            const r = await http.get(`recipes?user_id=${userId}`);
+        async getRecipes(){
+            const r = await http.get(`recipes`);
             return r.data;
         },
         async getRecipe(id) {

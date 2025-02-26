@@ -61,7 +61,7 @@ export default {
     ...mapActions(useRecipeStore, ['getRecipes']),
   },
   async mounted() {
-    this.recipes = await this.getRecipes(1)
+    this.recipes = await this.getRecipes()
   }
 }
 </script>
