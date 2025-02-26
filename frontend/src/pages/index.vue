@@ -19,9 +19,15 @@
             Szűrő
           </button>
           <div v-show="isDropdownOpen" class="z-10 absolute mt-12 bg-zinc-800 shadow-lg rounded-md overflow-hidden">
-            <div v-for="type in types" :key="type" class="hover:bg-zinc-600 transition-colors duration-200">
+            <div v-for="(type, index) in types" :key="type" class="hover:bg-zinc-600 transition-colors duration-200">
               <label class="flex items-center px-4 py-2 text-white cursor-pointer w-full">
-                <input type="checkbox" :id="`${type}_check`" class="w-4 h-4 mr-2">
+                <input 
+                  type="checkbox" 
+                  :id="`${type}_check`" 
+                  class="w-4 h-4 mr-2"
+                  v-model="selectedTypes[index]"
+                  @change="filterRecipes"
+                >
                 {{ type }}
               </label>
             </div>
@@ -30,7 +36,7 @@
       </section>
     </article>
     <div class="grid justify-items-center sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 relative">
-      <RecipeCard v-for="r in this.recipes" :recipe="r" />
+      <RecipeCard v-for="r in filteredRecipes" :recipe="r" />
     </div>
   </Layout>
 </template>
@@ -51,17 +57,31 @@ export default {
     return {
       isDropdownOpen: false,
       types: ["előétel", "főétel", "desszert", "egyéb"],
+      selectedTypes: [false, false, false, false],
       recipes: [],
+      filteredRecipes: []
     }
   },
   methods: {
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen
     },
+    filterRecipes() {
+      if (this.selectedTypes.every(type => !type)) {
+        this.filteredRecipes = this.recipes;
+        return;
+      }
+
+      this.filteredRecipes = this.recipes.filter(recipe => {
+        const recipeTypeIndex = recipe.type - 1;
+        return this.selectedTypes[recipeTypeIndex];
+      });
+    },
     ...mapActions(useRecipeStore, ['getRecipes']),
   },
   async mounted() {
     this.recipes = await this.getRecipes()
+    this.filteredRecipes = this.recipes;
   }
 }
 </script>
