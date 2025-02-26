@@ -8,7 +8,7 @@
     <hr class="w-full my-2 border-black dark:border-white" />
     <div class="w-full text-black dark:text-white">
       <div class="flex justify-between">
-        <p>{{ getTotalTime }}</p>
+        <p>{{ formatTime(getTotalTime) }}</p>
         <p>{{ getDifficulty }}</p>
       </div>
       <div class="flex justify-between">
@@ -26,6 +26,19 @@ export default {
       type: Object,
       required: true
     }
+  },
+
+
+  methods: {
+    formatTime(minutes) {
+      if (minutes > 0) {
+        const hours = Math.floor(minutes / 60)
+        const mins = minutes % 60
+        return hours ? `${hours}ó ${mins}p` : `${mins}p`
+      } else {
+        return ''
+      }
+    },
   },
 
   computed: {
