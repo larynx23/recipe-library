@@ -185,7 +185,8 @@ export default {
         prepare_time: 0,
         cooking_time: 0,
         default_serving: 1,
-        image: 'image.png',
+        image: null,
+        imagePreview: null,
         ingredients: [],
         steps: [],
         user_id: 1
@@ -215,12 +216,39 @@ export default {
         step.index = i;
       });
     },
+    imageUpload(event) {
+      const file = event.target.files[0];
+      if (file) {
+        if (file.size > 2 * 1024 * 1024) {
+          alert('A kép túl nagy! Kérjük, válassz 2MB-nál kisebb képet.');
+          event.target.value = '';
+          this.recipe.image = null;
+          this.recipe.imagePreview = null;
+          return;
+        }
+        
+        this.recipe.image = file;
+        this.recipe.imagePreview = URL.createObjectURL(file);
+      }
+    },
     async submitRecipe() {
       try {
-        await this.postRecipe(this.recipe)
+        const formData = new FormData();
+        
+        if (this.recipe.image instanceof File) {
+          formData.append('image', this.recipe.image);
+        }
+        
+        const recipeData = { ...this.recipe };
+        delete recipeData.image;
+        delete recipeData.imagePreview;
+        
+        formData.append('recipe', JSON.stringify(recipeData));
+        
+        await this.postRecipe(formData);
       } catch (error) {
         console.error('Error creating recipe:', error);
-        alert("Hiba történt, próbálja újra")
+        alert("Hiba történt, próbálja újra");
       }
     }
   },

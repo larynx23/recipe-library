@@ -29,6 +29,9 @@ else
     docker compose exec app php artisan key:generate
 fi
 
+echo "Creating storage link..."
+docker compose exec app php artisan storage:link
+
 # Run migrations
 echo "Running migrations..."
 docker compose exec app php artisan migrate

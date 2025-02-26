@@ -20,22 +20,27 @@ class RecipeController extends Controller
 
     public function store(Request $request)
     {
+        $recipeData = json_decode($request->recipe, true);
+        
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/recipes', $filename);
+            $recipeData['image'] = 'recipes/' . $filename;
+        }
 
-        $data = array_merge($request->all(), [
-            'user_id' => Auth::id()
-        ]);
+        $recipeData['user_id'] = Auth::id();
+        $recipe = Recipe::create($recipeData);
 
-        $recipe = Recipe::create($data);
-
-        if ($request->has('steps')) {
-            foreach ($request->steps as $stepData) {
+        if (isset($recipeData['steps'])) {
+            foreach ($recipeData['steps'] as $stepData) {
                 $step = new Step($stepData);
                 $recipe->steps()->save($step);
             }
         }
 
-        if ($request->has('ingredients')) {
-            foreach ($request->ingredients as $ingredientData) {
+        if (isset($recipeData['ingredients'])) {
+            foreach ($recipeData['ingredients'] as $ingredientData) {
                 $ingredient = new Ingredient($ingredientData);
                 $recipe->ingredients()->save($ingredient);
             }

@@ -16,12 +16,12 @@ export const useRecipeStore = defineStore('recipes', {
             const r = await http.get(`recipes/${id}`);
             return r.data;
         },
-        async postRecipe(recipe) {
-            const r = await http.post(`recipes`, recipe);
-            return r.data;
-        },
-        async removeRecipe(id) {
-            const r = await http.delete(`recipes/${id}`);
+        async postRecipe(formData) {
+            const r = await http.post(`recipes`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
             return r.data;
         },
         async removeRecipe(id) {
