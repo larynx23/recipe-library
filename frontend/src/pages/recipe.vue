@@ -181,6 +181,23 @@ export default {
   async mounted() {
     this.recipe = await this.getRecipe(this.$route.params.id)
     this.servings = this.recipe.default_serving;
+  },
+
+  watch: {
+    recipe: {
+      immediate: true,
+      handler(newRecipe) {
+        if (newRecipe) {
+          document.title = `${newRecipe.name} - Receptkönyv`;
+        } else {
+          document.title = 'Receptkönyv';
+        }
+      }
+    }
+  },
+
+  beforeUnmount() {
+    document.title = 'Receptkönyv';
   }
 }
 </script>
