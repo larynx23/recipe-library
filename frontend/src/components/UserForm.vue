@@ -83,7 +83,7 @@ export default {
       try {
         if (this.isLogin) {
           await auth.login(this.formData)
-          await this.$router.push({ name: 'home' })
+          await this.$router.push({ name: 'index' })
         } else {
           await auth.register(this.formData)
           await this.$router.push({ name: 'login' })
