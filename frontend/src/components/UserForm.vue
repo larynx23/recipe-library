@@ -4,6 +4,11 @@
       <h1 class="text-2xl font-bold text-center text-black dark:text-white mb-6">
         {{ isLogin ? 'Bejelentkezés' : 'Regisztráció' }}
       </h1>
+
+      <div v-if="error" class="dark:text-red-500 text-red-700 mt-1 text-center font-bold">
+        {{ errorMessage }}
+      </div>
+
       <form @submit.prevent="handleSubmit">
         <div class="mb-4">
           <label for="name" class="block mb-2 text-black dark:text-white">Név</label>
@@ -22,7 +27,12 @@
             id="password" 
             v-model="formData.password"
             class="w-full px-4 py-2 rounded-md bg-zinc-300 dark:bg-zinc-800 text-black dark:text-white"
-            required>
+            required
+            @input="validatePassword"
+          >
+          <p v-if="passwordError" class="dark:text-red-500 text-red-700 mt-1 text-sm">
+            {{ passwordError }}
+          </p>
         </div>
         
         <button 
@@ -67,7 +77,8 @@ export default {
         name: '',
         password: ''
       },
-      error: null
+      error: null,
+      passwordError: null
     }
   },
   watch: {
@@ -75,21 +86,40 @@ export default {
       window.location.reload()
     }
   },
+  computed: {
+    errorMessage() {
+      if (!this.error) return '';
+      return 'Hiba történt, kérjük próbálja újra';
+    }
+  },
   methods: {
+    validatePassword() {
+      if (this.formData.password.length < 8 && !this.isLogin) {
+        this.passwordError = 'A jelszónak legalább 8 karakter hosszúnak kell lennie';
+        return false;
+      }
+      this.passwordError = null;
+      return true;
+    },
     async handleSubmit() {
-      this.error = null
-      const auth = useAuthStore()
+      this.error = null;
+      
+      if (!this.validatePassword()) {
+        return;
+      }
+
+      const auth = useAuthStore();
 
       try {
         if (this.isLogin) {
-          await auth.login(this.formData)
-          await this.$router.push({ name: 'index' })
+          await auth.login(this.formData);
+          await this.$router.push({ name: 'index' });
         } else {
-          await auth.register(this.formData)
-          await this.$router.push({ name: 'login' })
+          await auth.register(this.formData);
+          await this.$router.push({ name: 'login' });
         }
       } catch (err) {
-        this.error = err
+        this.error = err;
       }
     }
   }
