@@ -25,7 +25,7 @@
             <option :value="1">Előétel</option>
             <option :value="2">Főétel</option>
             <option :value="3">Desszert</option>
-            <option :value="3">Egyéb</option>
+            <option :value="4">Egyéb</option>
           </select>
         </div>
 
