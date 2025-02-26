@@ -1,4 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
+import { useAuthStore } from '@stores/auth';
 
 import Index from "../pages/index.vue";
 import Recipe from "../pages/recipe.vue";
@@ -48,4 +49,21 @@ const routes = [
 export const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+const publicRoutes = ['/login', '/register'];
+
+router.beforeEach((to, from, next) => {
+  const auth = useAuthStore();
+  if (publicRoutes.includes(to.path)) {
+    next();
+    return;
+  }
+
+  if (!auth.isAuthenticated) {
+    next('/login');
+    return;
+  }
+
+  next();
 });
