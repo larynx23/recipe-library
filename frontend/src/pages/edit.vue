@@ -41,6 +41,12 @@ export default {
       try {
         const recipeId = this.$route.params.id;
         const recipeData = await this.getRecipe(recipeId);
+        
+        if (recipeData.image) {
+          const imagePath = recipeData.image.replace(/^\//, '');
+          recipeData.imagePreview = `http://127.0.0.1:8080/storage/${imagePath}`;
+        }
+        
         this.recipe = {
           ...recipeData,
           steps: recipeData.steps || [],
