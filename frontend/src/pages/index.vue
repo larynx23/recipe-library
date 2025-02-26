@@ -62,7 +62,6 @@ export default {
   },
   async mounted() {
     this.recipes = await this.getRecipes()
-    console.log(this.recipes)
   }
 }
 </script>
