@@ -1,6 +1,10 @@
 <template>
   <Layout>
-    <article class="flex flex-wrap">
+    <div v-if="isLoading" class="min-h-screen flex items-center justify-center">
+      <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-zinc-500 dark:border-zinc-300"></div>
+    </div>
+
+    <article v-else class="flex flex-wrap">
       <section class="w-full">
         <p class="pt-5 dark:text-white  text-center">
           A jól kiválasztott recept bizony nem elég a sütemények készítéséhez. Legtöbbször felületesek a leírások, és
@@ -55,6 +59,7 @@ export default {
 
   data() {
     return {
+      isLoading: true,
       isDropdownOpen: false,
       types: ["előétel", "főétel", "desszert", "egyéb"],
       selectedTypes: [false, false, false, false],
@@ -80,8 +85,14 @@ export default {
     ...mapActions(useRecipeStore, ['getRecipes']),
   },
   async mounted() {
-    this.recipes = await this.getRecipes()
-    this.filteredRecipes = this.recipes;
+    try {
+      this.recipes = await this.getRecipes()
+      this.filteredRecipes = this.recipes;
+    } catch (error) {
+      console.error('Error loading recipes:', error);
+    } finally {
+      this.isLoading = false;
+    }
   }
 }
 </script>
