@@ -16,7 +16,6 @@ return new class extends Migration
             $table->text('description');
             $table->integer('prepare_time');
             $table->integer('cooking_time');
-            $table->integer('time');
             $table->string('image')->nullable();
             $table->integer('default_serving');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

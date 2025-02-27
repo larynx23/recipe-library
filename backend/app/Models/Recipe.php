@@ -2,10 +2,12 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Recipe extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
         'name',
         'type',
@@ -14,18 +16,18 @@ class Recipe extends Model
         'description',
         'prepare_time',
         'cooking_time',
-        'time',
         'image',
         'default_serving',
         'user_id'
     ];
 
-    protected static function boot()
+    protected $appends = ['time'];
+
+    protected function time(): Attribute
     {
-        parent::boot();
-        static::creating(function ($recipe) {
-            $recipe->time = $recipe->prepare_time + $recipe->cooking_time;
-        });
+        return Attribute::make(
+            get: fn () => $this->prepare_time + $this->cooking_time,
+        );
     }
 
     public function ingredients()

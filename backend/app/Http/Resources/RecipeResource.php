@@ -15,7 +15,6 @@ class RecipeResource extends JsonResource
             'description' => $this->description,
             'prepare_time' => $this->prepare_time,
             'cooking_time' => $this->cooking_time,
-            'time' => $this->time,
             'image' => $this->image,
             'default_serving' => $this->default_serving,
             'ingredients' => IngredientResource::collection($this->whenLoaded('ingredients')),
