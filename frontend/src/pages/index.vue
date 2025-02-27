@@ -86,7 +86,7 @@ export default {
   },
   async mounted() {
     try {
-      this.recipes = await this.getRecipes()
+      this.recipes = (await this.getRecipes()).data
       this.filteredRecipes = this.recipes;
     } catch (error) {
       console.error('Error loading recipes:', error);

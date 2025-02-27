@@ -21,15 +21,6 @@ class Recipe extends Model
         'user_id'
     ];
 
-    protected $appends = ['time'];
-
-    protected function time(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->prepare_time + $this->cooking_time,
-        );
-    }
-
     public function ingredients()
     {
         return $this->hasMany(Ingredient::class);

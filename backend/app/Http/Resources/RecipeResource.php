@@ -15,10 +15,11 @@ class RecipeResource extends JsonResource
             'description' => $this->description,
             'prepare_time' => $this->prepare_time,
             'cooking_time' => $this->cooking_time,
+            'time' => $this->prepare_time + $this->cooking_time,
             'image' => $this->image,
             'default_serving' => $this->default_serving,
-            'ingredients' => IngredientResource::collection($this->whenLoaded('ingredients')),
             'steps' => StepResource::collection($this->whenLoaded('steps')),
+            'ingredients' => IngredientResource::collection($this->whenLoaded('ingredients')),
         ];
     }
 }

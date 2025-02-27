@@ -2,25 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\RecipeRequest;
+use App\Http\Resources\RecipeResource;
 use App\Models\Recipe;
 use App\Models\Step;
 use App\Models\Ingredient;
 use Illuminate\Support\Facades\Auth;
 
-
-
 class RecipeController extends Controller
 {
     public function index()
     {
-        $recipes = Recipe::with(['steps', 'ingredients'])->where('user_id', Auth::id())->get();
-        return response()->json($recipes);
+        $recipes = Recipe::with(['steps', 'ingredients'])
+            ->where('user_id', Auth::id())
+            ->get();
+        
+        return RecipeResource::collection($recipes);
     }
 
-    public function store(Request $request)
+    public function store(RecipeRequest $request)
     {
-        $recipeData = json_decode($request->recipe, true);
+        $recipeData = $request->validated();
+        $recipeData['user_id'] = Auth::id();
         
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -29,24 +32,19 @@ class RecipeController extends Controller
             $recipeData['image'] = 'recipes/' . $filename;
         }
 
-        $recipeData['user_id'] = Auth::id();
         $recipe = Recipe::create($recipeData);
 
-        if (isset($recipeData['steps'])) {
-            foreach ($recipeData['steps'] as $stepData) {
-                $step = new Step($stepData);
-                $recipe->steps()->save($step);
-            }
+        foreach ($recipeData['steps'] as $stepData) {
+            $recipe->steps()->create($stepData);
         }
 
-        if (isset($recipeData['ingredients'])) {
-            foreach ($recipeData['ingredients'] as $ingredientData) {
-                $ingredient = new Ingredient($ingredientData);
-                $recipe->ingredients()->save($ingredient);
-            }
+        foreach ($recipeData['ingredients'] as $ingredientData) {
+            $recipe->ingredients()->create($ingredientData);
         }
 
-        return response()->json($recipe->load(['steps', 'ingredients']), 201);
+        return (new RecipeResource($recipe->load(['steps', 'ingredients'])))
+            ->response()
+            ->setStatusCode(201);
     }
 
     public function show($id)
@@ -54,14 +52,14 @@ class RecipeController extends Controller
         $recipe = Recipe::with(['steps', 'ingredients'])
             ->where('user_id', Auth::id())
             ->findOrFail($id);
-        return response()->json($recipe);
+            
+        return new RecipeResource($recipe);
     }
 
-    public function update(Request $request, $id)
+    public function update(RecipeRequest $request, $id)
     {
-        $recipeData = json_decode($request->recipe, true);
-
         $recipe = Recipe::where('user_id', Auth::id())->findOrFail($id);
+        $recipeData = $request->validated();
         
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -74,23 +72,19 @@ class RecipeController extends Controller
 
         if (isset($recipeData['steps'])) {
             $recipe->steps()->delete();
-            
             foreach ($recipeData['steps'] as $stepData) {
-                $step = new Step($stepData);
-                $recipe->steps()->save($step);
+                $recipe->steps()->create($stepData);
             }
         }
 
         if (isset($recipeData['ingredients'])) {
             $recipe->ingredients()->delete();
-            
             foreach ($recipeData['ingredients'] as $ingredientData) {
-                $ingredient = new Ingredient($ingredientData);
-                $recipe->ingredients()->save($ingredient);
+                $recipe->ingredients()->create($ingredientData);
             }
         }
 
-        return response()->json($recipe->load(['steps', 'ingredients']));
+        return new RecipeResource($recipe->load(['steps', 'ingredients']));
     }
 
     public function destroy($id)
@@ -99,5 +93,4 @@ class RecipeController extends Controller
         $recipe->delete();
         return response()->json(null, 204);
     }
-
 }
