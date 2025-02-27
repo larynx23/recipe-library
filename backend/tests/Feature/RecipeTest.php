@@ -50,17 +50,19 @@ class RecipeTest extends TestCase
 
         $response->assertStatus(201)
             ->assertJsonStructure([
-                'id',
-                'name',
-                'type',
-                'steps' => [['index', 'description']],
-                'ingredients' => [['unit', 'count']]
+                'data' => [
+                    'id',
+                    'name',
+                    'type',
+                    'time',
+                    'steps',
+                    'ingredients'
+                ]
             ]);
 
         $this->assertDatabaseHas('recipes', [
             'name' => 'Test Recipe',
-            'user_id' => $this->user->id,
-            'time' => 75
+            'user_id' => $this->user->id
         ]);
     }
 
@@ -101,7 +103,8 @@ class RecipeTest extends TestCase
             ->getJson('/api/recipes');
 
         $response->assertOk()
-            ->assertJsonCount(3);
+            ->assertJsonStructure(['data'])
+            ->assertJsonCount(3, 'data');
     }
 
     /** @test */
@@ -153,9 +156,18 @@ class RecipeTest extends TestCase
         $response = $this->withHeader('Authorization', 'Bearer ' . $this->token)
             ->postJson('/api/recipes', $this->validRecipeData);
 
+        $responseData = $response->json('data');
+        
+        $this->assertEquals(
+            75, // 30 + 45
+            $responseData['time'],
+            'Time should be the sum of prepare_time and cooking_time'
+        );
+
         $this->assertDatabaseHas('recipes', [
-            'id' => $response->json('id'),
-            'time' => 75 // 30 + 45
+            'id' => $responseData['id'],
+            'prepare_time' => 30,
+            'cooking_time' => 45
         ]);
     }
 
