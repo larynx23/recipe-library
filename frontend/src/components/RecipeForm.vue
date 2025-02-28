@@ -1,5 +1,6 @@
 <template>
   <form class="max-w-2xl mx-auto" @submit.prevent.once="onSubmit">
+    <h1 class="text-5xl dark:text-white mb-10 text-center">{{ title }}</h1>
     <div class="space-y-6">
       <div>
         <label class="block text-lg text-black font-bold dark:text-white mb-1">Név</label>
@@ -116,15 +117,15 @@
             placeholder="Mértékegység és megnevezés"
             class="flex-1 p-2 border rounded"
             required>
-          <button type="button" @click="removeIngredient(index)" class="px-3 py-2 bg-red-500 text-white rounded">
-            Törlés
+          <button type="button" @click="removeIngredient(index)" class="px-3 py-2 border-red-500 border-2 text-red-500 bg-red-600/10 hover:bg-red-600/25 rounded">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"class="w-6 h-6"><g><path d="M10 12V17M14 12V17M4 7H20M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
           </button>
         </div>
         <button 
           type="button" 
           @click="addIngredient"
-          class="mt-2 px-4 py-2 bg-green-500 text-white rounded"
-        >
+          class="mt-2 px-4 py-2 border-green-500 border-2 text-green-500 bg-green-600/10 hover:bg-green-600/25 rounded w-1/4 flex items-center justify-center gap-1">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"class="w-6 h-6"><path d="M6 12H18M12 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Új hozzávaló
         </button>
       </div>
@@ -136,21 +137,22 @@
           <textarea 
             v-model="step.description" 
             placeholder="Lépés"
-            class="flex-1 p-2 border rounded"
+            class="flex-1 p-2 border rounded min-h-14"
             rows="2"
             required></textarea>
           <button 
             type="button" 
             @click="removeStep(index)"
-            class="px-3 py-2 bg-red-500 text-white rounded">
-            Törlés
+            class="px-3 py-2 border-red-500 border-2 text-red-500 bg-red-600/10 hover:bg-red-600/25 rounded h-14 self-center">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"class="w-6 h-6"><g><path d="M10 12V17M14 12V17M4 7H20M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
           </button>
         </div>
         <button 
           type="button" 
           @click="addStep"
-          class="mt-2 px-4 py-2 bg-green-500 text-white rounded">
-        Új lépés
+          class="mt-2 px-4 py-2 border-green-500 border-2 text-green-500 bg-green-600/10 hover:bg-green-600/25 rounded w-1/4 flex items-center justify-center gap-1">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"class="w-6 h-6"><path d="M6 12H18M12 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Új lépés
         </button>
       </div>
     </div>
@@ -175,7 +177,8 @@ export default {
   },
   data() {
     return {
-      recipeData: { ...this.initialData }
+      recipeData: { ...this.initialData },
+      title: this.$route.path === "/add" ? "Új recept hozzáadása" : "Szerkesztés"
     };
   },
   methods: {
@@ -220,4 +223,4 @@ export default {
     }
   }
 };
-</script> 
+</script>

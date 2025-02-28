@@ -40,7 +40,7 @@ export default {
     async fetchRecipe() {
       try {
         const recipeId = this.$route.params.id;
-        const recipeData = await this.getRecipe(recipeId);
+        const recipeData = (await this.getRecipe(recipeId)).data;
         
         if (recipeData.image) {
           const imagePath = recipeData.image.replace(/^\//, '');
