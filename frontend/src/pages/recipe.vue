@@ -179,7 +179,7 @@ export default {
   },
 
   async mounted() {
-    this.recipe = await this.getRecipe(this.$route.params.id)
+    this.recipe = (await this.getRecipe(this.$route.params.id)).data
     this.servings = this.recipe.default_serving;
   },
 
