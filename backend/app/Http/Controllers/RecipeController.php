@@ -22,13 +22,20 @@ class RecipeController extends Controller
 
     public function store(RecipeRequest $request)
     {
-        $recipeData = $request->validated();
+        $recipeData = json_decode($request->recipe, true);
         $recipeData['user_id'] = Auth::id();
+        $recipeData['image'] = null;
         
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('public/recipes', $filename);
+            
+            $directory = storage_path('app/public/recipes');
+            if (!file_exists($directory)) {
+                mkdir($directory, 0755, true);
+            }
+            
+            $file->move($directory, $filename);
             $recipeData['image'] = 'recipes/' . $filename;
         }
 
@@ -59,12 +66,18 @@ class RecipeController extends Controller
     public function update(RecipeRequest $request, $id)
     {
         $recipe = Recipe::where('user_id', Auth::id())->findOrFail($id);
-        $recipeData = $request->validated();
+        $recipeData = json_decode($request->recipe, true);
         
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('public/recipes', $filename);
+            
+            $directory = storage_path('app/public/recipes');
+            if (!file_exists($directory)) {
+                mkdir($directory, 0755, true);
+            }
+            
+            $file->move($directory, $filename);
             $recipeData['image'] = 'recipes/' . $filename;
         }
 

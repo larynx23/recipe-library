@@ -57,7 +57,7 @@ export default {
         
         formData.append('recipe', JSON.stringify(recipeDataToSend));
         
-        const newRecipe = await this.postRecipe(formData);
+        const newRecipe = (await this.postRecipe(formData)).data;
         this.$router.push(`/recipe/${newRecipe.id}`);
       } catch (error) {
         console.error('Error creating recipe:', error);

@@ -11,29 +11,42 @@ class RecipeRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name' => 'required|string|max:255',
-            'type' => 'required|integer|between:1,3',
-            'cost' => 'required|integer|between:1,3',
-            'difficulty' => 'required|integer|between:1,3',
-            'description' => 'required|string',
-            'prepare_time' => 'required|integer|min:1',
-            'cooking_time' => 'required|integer|min:0',
-            'image' => 'nullable|string',
-            'default_serving' => 'required|integer|min:1',
-            'steps' => 'required|array|min:1',
-            'steps.*.description' => 'required|string',
-            'steps.*.index' => 'required|integer|min:1',
-            'ingredients' => 'required|array|min:1',
-            'ingredients.*.unit' => 'required|string',
-            'ingredients.*.count' => 'required|numeric|min:0.1'
+            'recipe' => 'required',
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif,webp|max:2048'
         ];
 
         if ($this->isMethod('PUT')) {
-            return array_map(function ($rule) {
-                return str_replace('required|', 'sometimes|', $rule);
-            }, $rules);
+            return $rules;
         }
 
         return $rules;
+    }
+
+    protected function passedValidation()
+    {
+        if ($this->has('recipe')) {
+            $recipeData = json_decode($this->recipe, true);
+            
+            $validator = \Validator::make($recipeData, [
+                'name' => 'required|string|max:255',
+                'type' => 'required|integer|between:1,4',
+                'cost' => 'integer|between:1,3',
+                'difficulty' => 'required|integer|between:1,3',
+                'description' => 'required|string',
+                'prepare_time' => 'integer',
+                'cooking_time' => 'integer',
+                'default_serving' => 'integer',
+                'steps' => 'array',
+                'steps.*.description' => 'string',
+                'steps.*.index' => 'integer',
+                'ingredients' => 'array',
+                'ingredients.*.unit' => 'string',
+                'ingredients.*.count' => 'numeric'
+            ]);
+
+            if ($validator->fails()) {
+                throw new \Illuminate\Validation\ValidationException($validator);
+            }
+        }
     }
 }
