@@ -15,11 +15,6 @@
 - Csak bejelentkezett fehasználó tud kijelentkezni
 - Visszadobja a felhasználót a főoldalra
 - Elfelejti a session token-t
-#### 1.1.4 Profil szerkesztése
-- Csak bejelentkezett felhasználó éri el az oldalt
-- A saját adatai jelennek meg
-- Nem tudja kitörölni a saját adatait, muszáj valamilyen értéknek lennie amire változna
-- Adatbázisban frissül a felhasználó adata
 ### 1.2 Receptek
 #### 1.2.1 Receptek megjelenítése
 - Csak a felhasználóhoz hozzárendelt receptek jelennek meg
