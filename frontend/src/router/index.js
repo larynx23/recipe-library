@@ -38,12 +38,7 @@ const routes = [
     name: "login",
     path: "/login",
     component: Auth,
-  },
-  {
-    name: "profile",
-    path: "/profile",
-    component: Profile,
-  },
+  }
 ];
 
 export const router = createRouter({
